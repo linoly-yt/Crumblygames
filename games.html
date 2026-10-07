@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>All games</title>
+		<style>
+	:root {
+		--ink:#2b1b12;
+		--sky:#8fd6f5;
+		--paper:#fff6dc;
+		--sun:#ffd23f;
+		--red:#ff5a4d;
+		--grn:#5fd068;
+		--brn:#6b4a33;
+		--f:"Chalkboard SE","Marker 	Felt","Comic Neue","Comic Sans MS","Trebuchet MS",sans-serif
+	}
+
+	body {
+		margin:0;
+		background:var(--sky) radial-gradient(circle,#ffffff66 14%,transparent 15%) 0 0/64px 64px;color:var(--ink);
+		font-family:var(--f);
+		line-height:1.45;
+	}
+	
+	a {
+		color:#b3300f;
+		font-weight:700;
+	}
+	
+	header {
+		padding:22px 16px 4px;
+		text-align:center;
+	}
+	
+	h1 {
+		margin:0;
+		font-size:clamp(2.2rem,7vw,3.8rem);
+		color:var(--sun);
+		-webkit-text-stroke:3px var(--ink);
+		paint-order:stroke fill;
+		text-shadow:4px 4px 0 var(--ink);
+		display:inline-block;
+		transform-origin:50% 80%;
+		animation:sway 4s ease-in-out infinite;
+	}
+	
+	@keyframes sway {
+		0%,100%{transform:rotate(-3deg) translateX(-4px)}50%{transform:rotate(3deg) translateX(4px)}
+	}
+	
+	header p {
+		margin:10px auto 0;
+		max-width:56ch;
+		font-weight:700;
+	}
+	
+	nav {
+		display:flex;
+		gap:10px;
+		justify-content:center;
+		flex-wrap:wrap;
+		padding:16px
+	}
+	
+	nav button,
+	.btn {
+		font:inherit;
+		font-weight:700;
+		color:var(--ink);
+		background:#fff;
+		border:3px solid var(--ink);
+		border-radius:14px 18px 12px 16px;
+		padding:8px 16px;
+		cursor:pointer;
+		box-shadow:3px 3px 0 var(--ink);
+		transition:transform .1s,box-shadow .1s
+	}
+	
+	nav button:hover,
+	.btn:hover {
+		transform:translate(-1px,-2px);
+		box-shadow:4px 5px 0 var(--ink)
+	}
+	
+	nav button:active,
+	.btn:active {
+		transform:translate(3px,3px);
+		box-shadow:0 0 0 var(--ink)
+	}
+	
+	nav button[aria-selected=true] {
+		background:var(--sun)
+	}
+		</style>
+	</head>
+		<body>
+			<nav role="tablist" aria-label="Games">
+				<button role="tab" aria-selected="false" data-t="cc"><img scr="1x1.jpeg" width=120px height=120px><br>Crumb Clicker</button>
+				<button role="tab" aria-selected="false" data-t="plat"><img src="1x1.jpeg" width=120px height=120px><br>Platformer</button>
+				<button role="tab" aria-selected="false" data-t="snk"><img src="1x1.jpeg" width=120px height=120px><br>Snake</button>
+				<button role="tab" aria-selected="false" data-t="mem"><img src="1x1.jpeg" width=120px height=120px><br>Memory</button>
+				<button role="tab" aria-selected="false" data-t="rx"><img src="1x1.jepg" width=120px height=120px><br>Reaction Test</button>
+			</nav>
+		</body>
+</html>
