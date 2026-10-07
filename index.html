@@ -246,8 +246,11 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 <div><button class="btn" id="ok" style="background:var(--grn)">Accept all</button><button class="btn" id="no">Necessary only</button></div>
 </div>
 
+<button onclick="games.showModal()">More games</button>
+
 <dialog id="games">
 	<nav role="tablist" aria-label="Games">
+		<button onclick="games.close()" style="background:var(--red);">Close</button>
 		<button role="tab" aria-selected="false" data-t="cc"><img scr="1x1.jpeg" width=120px height=120px><br>Crumb Clicker</button>
 		<button role="tab" aria-selected="false" data-t="plat"><img src="1x1.jpeg" width=120px height=120px><br>Platformer</button>
 		<button role="tab" aria-selected="false" data-t="snk"><img src="1x1.jpeg" width=120px height=120px><br>Snake</button>
