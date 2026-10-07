@@ -124,6 +124,39 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 .stars .ic{width:1em;height:1em}
 .stars i{opacity:.25;filter:grayscale(1);font-style:normal}
 .stars i.on{opacity:1;filter:none}
+
+  		dialog {
+    		border: none;
+    		border-radius: 24px;
+    		padding: 32px;
+    		max-width: 380px;
+    		width: 90%;
+    		background:white;
+    		backdrop-filter: blur(20px);
+    		-webkit-backdrop-filter: blur(20px);
+    		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    		text-align: center;
+			}
+  		@keyframes popIn {
+    		from {
+      			opacity: 0;
+      			transform: scale(0.9) translateY(10px);
+    		}
+    		to {
+      			opacity: 1;
+      			transform: scale(1) translateY(0);
+    			}
+  		}
+  		@keyframes popOut {
+    		from {
+      			opacity: 1;
+      			transform: scale(1) translateY(0);
+    			}
+    			to {
+      				opacity: 0;
+      				transform: scale(0.9) translateY(10px);
+    			}
+  		}
 </style>
 </head>
 <body>
@@ -212,6 +245,10 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 <p>We use cookies for advertising (Google AdSense). They are only loaded with your consent. Read more in our <a href="datenschutz.html">Privacy Policy</a>. Game progress is stored locally on your device.</p>
 <div><button class="btn" id="ok" style="background:var(--grn)">Accept all</button><button class="btn" id="no">Necessary only</button></div>
 </div>
+
+<dialog id="games">
+     
+</dialog>
 
 <script>
 // ===== Settings =====
