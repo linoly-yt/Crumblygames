@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2197797913140611"
-     crossorigin="anonymous"></script>
 <link rel="icon" href="favicon.ico">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,45 +122,80 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 .stars .ic{width:1em;height:1em}
 .stars i{opacity:.25;filter:grayscale(1);font-style:normal}
 .stars i.on{opacity:1;filter:none}
-
-  		dialog {
-    		border: none;
-    		border-radius: 24px;
-    		padding: 32px;
-    		max-width: 380px;
-    		width: 90%;
-    		background:white;
-    		backdrop-filter: blur(20px);
-    		-webkit-backdrop-filter: blur(20px);
-    		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    		text-align: center;
-			}
-  		@keyframes popIn {
-    		from {
-      			opacity: 0;
-      			transform: scale(0.9) translateY(10px);
-    		}
-    		to {
-      			opacity: 1;
-      			transform: scale(1) translateY(0);
-    			}
-  		}
-  		@keyframes popOut {
-    		from {
-      			opacity: 1;
-      			transform: scale(1) translateY(0);
-    			}
-    			to {
-      				opacity: 0;
-      				transform: scale(0.9) translateY(10px);
-    			}
-  		}
+/* Shops */
+.cc{grid-template-columns:1fr;max-width:620px;margin:0 auto}
+.shoprow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.shopb{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:150px;padding:10px 18px;position:relative;font-size:1.05rem}
+.shopb .ic{width:3.2em;height:3.2em;transition:transform .25s cubic-bezier(.2,1.6,.4,1)}
+.shopb:hover .ic{transform:rotate(-8deg) scale(1.15)}
+.shopb.ready::after{content:"";position:absolute;top:-9px;right:-9px;width:18px;height:18px;border-radius:50%;background:var(--red);border:3px solid var(--ink);animation:ping .8s ease-in-out infinite alternate}
+@keyframes ping{to{transform:scale(1.45)}}
+.mo{position:fixed;inset:0;z-index:40;display:grid;place-items:center;padding:12px;background:rgba(43,27,18,.55);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.mo.open{opacity:1;visibility:visible;transition:opacity .25s}
+.mb{width:min(580px,100%);max-height:88vh;overflow-y:auto;overscroll-behavior:contain;transform:translateY(40px) scale(.85) rotate(-3deg);transition:transform .4s cubic-bezier(.2,1.5,.4,1)}
+.mo.open .mb{transform:none}
+.mb h3{margin:14px 0 6px;color:#d1481f}
+.mh{display:flex;justify-content:space-between;align-items:center;gap:10px;position:sticky;top:-16px;background:var(--paper);padding:8px 0;z-index:1}
+.mh h2{margin:0;font-size:1.5rem}
+.mh .ic{width:1.8em;height:1.8em;vertical-align:-.6em}
+.mx{padding:4px 10px}.mx .ic{width:1.1em;height:1.1em;vertical-align:-.2em}
+.pill{display:inline-block;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:2px 12px;margin:4px 6px 8px 0;font-weight:800}
+/* Sticker design */
+:root{--paper:#fff8e8;--acc:#e8833a;--brn:#7a5a44;--f:"Trebuchet MS","Arial Rounded MT Bold",system-ui,sans-serif}
+body{background:#f6e7c8 radial-gradient(circle,#e6cf9f 1.6px,transparent 1.7px) 0 0/22px 22px;font-weight:700}
+.sub{font-weight:600}
+h1{color:var(--ink);-webkit-text-stroke:0;text-shadow:3px 3px 0 #fff;font-size:clamp(2rem,6vw,3rem);display:inline-flex;align-items:center;gap:10px;animation:none;transform:rotate(-2deg)}
+h1 .ic{width:1.3em;height:1.3em;animation:wob 3s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(14deg) scale(1.1)}}
+@keyframes in{from{opacity:0;transform:translateY(26px) scale(.97)}}
+section.on{animation:in .5s cubic-bezier(.2,1.4,.4,1)}
+nav button,.btn{border-radius:14px;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s,background .2s}
+nav button:nth-child(even){transform:rotate(1.2deg)}
+nav button:hover,.btn:hover{transform:translate(-2px,-2px) rotate(-1deg);box-shadow:6px 6px 0 var(--ink)}
+nav button:active,.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+nav button[aria-selected=true]{background:var(--acc);color:#fff;text-shadow:1px 1px 0 var(--ink)}
+.card{border:3px solid var(--ink);border-radius:20px;box-shadow:4px 4px 0 var(--ink)}
+.count{font-size:2.8rem;color:var(--ink);-webkit-text-stroke:0;text-shadow:3px 3px 0 #fff}
+.it{border-radius:14px;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,background .2s}
+.it:not(:disabled):hover{transform:translateX(5px);background:#fff3b8}
+.it b{background:var(--acc);color:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:2px 9px;text-shadow:1px 1px 0 var(--ink)}
+.rb b{background:none;border:0;text-shadow:none}
+.lv,.mc{border-radius:14px}
+.it.done{opacity:.85;background:#d7f0b8}.it.done b{background:var(--grn)}
+.mc{perspective:600px;border:0;background:none;box-shadow:none;padding:0;transition:none;display:block;animation:in .4s both}
+.mc::before{content:none!important}
+.mc.f,.mc.m{background:none;transform:none;box-shadow:none}
+.mc .mi{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.mc.f .mi,.mc.m .mi{transform:rotateY(180deg)}
+.mc .fa,.mc .ba{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:3px solid var(--ink);border-radius:14px;display:grid;place-items:center;box-shadow:3px 3px 0 var(--ink)}
+.mc .fa{background:var(--acc)}.mc .fa svg{width:60%;height:60%}
+.mc .ba{background:var(--paper);transform:rotateY(180deg)}.mc .ba svg{width:70%;height:70%}
+.mc.m .ba{background:#d7f0b8;animation:okp .5s}
+@keyframes okp{50%{transform:rotateY(180deg) scale(1.18)}}
+#rxb{transition:background .15s;border-radius:20px!important}
+.psg .lv{animation:in .4s both}
+.psg .lv:nth-child(odd){transform:rotate(-1.5deg)}.psg .lv:nth-child(even){transform:rotate(1.5deg)}
+.psg .lv:not(:disabled):hover{transform:translate(-2px,-3px) rotate(-2deg);box-shadow:5px 6px 0 var(--ink)}
+.btn.big{border-radius:18px}.btn.big:hover{transform:translate(-2px,-3px) rotate(-1deg) scale(1.03)}
+.pb{border-radius:20px}
+.pm h2{text-shadow:3px 3px 0 #fff}
+.bar{height:22px;border:3px solid var(--ink);border-radius:12px;background:#fff;overflow:hidden;margin:10px 0 2px}
+.bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--grn) 0 12px,#a3d56b 12px 24px);transition:width .4s cubic-bezier(.2,1.2,.4,1)}
+.bar.full{animation:barp .7s ease-in-out infinite alternate}
+@keyframes barp{to{transform:scale(1.03);box-shadow:0 0 12px #5fd068}}
+.psg .lv.cur{animation:in .4s both,curp .9s .4s ease-in-out infinite alternate}
+@keyframes curp{to{box-shadow:0 0 0 5px #ffd23f}}
+.snw{position:relative;width:min(340px,100%);margin:0 auto}
+.snm{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(255,246,220,.95);border-radius:18px;z-index:2;animation:in .35s both}
+.snm[hidden]{display:none}.snm .btn{min-width:150px}
+.snm .btn.sel{background:var(--acc);color:#fff;text-shadow:1px 1px 0 var(--ink)}
+.it .sksv{display:block;width:44px;height:44px;flex:none;margin-right:12px}.it .sksv svg{width:100%;height:100%}
+.it:has(.sksv)>span:nth-child(2){flex:1;text-align:left}
 </style>
 </head>
 <body>
 <header>
-<h1>Crumbly Games</h1>
-	<h1>Big update comming soon!</h1>
+<h1><span class="ic" data-i="cookie"></span>Crumbly Games</h1>
 <p>Free browser games. No download, your progress is saved on your google-account. (sign-in needed)</p>
 </header>
 <nav role="tablist" aria-label="Games">
@@ -183,31 +216,28 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 <div class="card stage" id="stage">
 <div class="count" id="cnt">0</div>
 <div class="sub"><span id="cps">0</span> crumbs per second · <span id="cpc">1</span> per click</div>
-<button id="crumb" aria-label="Click the cookie"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="90" fill="#e0a24f" stroke="#2b1b12" stroke-width="6"/><path d="M40 70 Q60 38 100 32" fill="none" stroke="#f6cf8a" stroke-width="8" stroke-linecap="round"/><g fill="#5a3218" stroke="#2b1b12" stroke-width="3"><ellipse cx="55" cy="105" rx="10" ry="8" transform="rotate(-20 55 105)"/><ellipse cx="150" cy="60" rx="11" ry="8" transform="rotate(25 150 60)"/><ellipse cx="148" cy="128" rx="10" ry="8"/><ellipse cx="88" cy="55" rx="9" ry="7"/><ellipse cx="100" cy="165" rx="10" ry="7" transform="rotate(15 100 165)"/></g><g stroke="#2b1b12" stroke-width="4"><ellipse cx="76" cy="90" rx="13" ry="16" fill="#fff"/><ellipse cx="124" cy="90" rx="13" ry="16" fill="#fff"/></g><circle cx="79" cy="93" r="6" fill="#2b1b12"/><circle cx="121" cy="93" r="6" fill="#2b1b12"/><circle cx="60" cy="122" r="9" fill="#ff8a8a" opacity=".7"/><circle cx="140" cy="122" r="9" fill="#ff8a8a" opacity=".7"/><path class="mouth" d="M78 122 Q100 148 122 122 Q100 130 78 122Z" fill="#7a2f1a" stroke="#2b1b12" stroke-width="4" stroke-linejoin="round"/></svg></button>
+<button id="crumb" aria-label="Click the cookie"><svg viewBox="0 0 200 200" aria-hidden="true"><g stroke="#3b2417" stroke-width="6" stroke-linejoin="round"><circle cx="100" cy="100" r="90" fill="#dc9d55"/><path d="M40 70A70 70 0 0 1 100 30" fill="none" stroke="#f3c485" stroke-linecap="round"/><g fill="#5a3320" stroke-width="4"><ellipse cx="70" cy="75" rx="12" ry="9"/><ellipse cx="128" cy="62" rx="10" ry="8"/><ellipse cx="140" cy="115" rx="13" ry="9"/><ellipse cx="90" cy="130" rx="11" ry="9"/><ellipse cx="58" cy="118" rx="8" ry="6"/><ellipse cx="112" cy="95" rx="7" ry="5"/></g></g></svg></button>
 <div class="sub">Rebirths: <b id="rbn">0</b> · Bonus: <b id="rbm">+0%</b></div>
-</div>
-<div class="card shop">
-<button class="it rb" id="rebirth"></button>
-<h3>Buildings</h3><div id="bld"></div>
-<h3>Click upgrades</h3><div id="clk"></div>
-<h3>Production upgrades</h3><div id="glb"></div>
+<div class="bar" id="rbar1"><i></i></div><div class="sub" id="rbt1"></div>
+<div class="shoprow"><button class="btn shopb" id="shopb"><span class="ic" data-i="shop"></span>Shop</button><button class="btn shopb" id="rshopb"><span class="ic" data-i="rshop"></span>Rebirth Shop</button><button class="btn shopb" id="skinb"><span class="ic" data-i="skin"></span>Skins</button></div>
 <p class="sub"><button class="btn" id="reset">Delete save</button></p>
 </div>
 </div>
-<p class="sub">How to play: Click the cookie, buy buildings to bake automatically and catch golden stars for bonuses. Once you have baked enough crumbs in one run (1 million at first, 3 times more after every rebirth), you can rebirth: you start over but keep a permanent bonus.</p>
+<p class="sub">How to play: Click the cookie, buy buildings to bake automatically and catch golden stars for bonuses. Once you have baked enough crumbs in one run (1 million at first, 3.5 times more after every rebirth), you can rebirth: you start over but keep a permanent bonus and earn Rebirth Tokens. Open the Shop for buildings and upgrades, and spend your tokens on permanent perks in the Rebirth Shop. Finish levels in Cookie Run to earn extra crumbs, and buy cookie skins in the Skins shop.</p>
 </section>
 
 <section id="plat" class="card">
 <div id="pmenu"><div class="pm">
 <span class="ic pcook" data-i="cookie"></span>
 <h2 style="margin:0;font-size:2.2rem">Cookie Run</h2>
-<p class="sub" id="pst"></p>
+<p class="sub" id="pst"></p><div class="bar" id="psb1" style="width:min(360px,90%);margin:6px auto 12px"><i></i></div>
 <button class="btn big" id="pm-play" style="background:var(--grn)"><span class="ic" data-i="flag"></span> <span id="pm-pt">Play</span></button>
 <button class="btn big" id="pm-sel"><span class="ic" data-i="star"></span> Select level</button>
+<button class="btn big" id="pm-skin"><span class="ic" data-i="skin"></span> Skins</button>
 <button class="btn big" id="pm-how"><span class="ic" data-i="card"></span> How to play</button>
 <p class="sub" id="phow" hidden style="max-width:460px">Collect coins, stomp the grumpy blobs by landing on them, avoid spikes and reach the flag. Springs launch you high.<br><b>Keyboard:</b> arrows or A/D to move, Space, W or ↑ to jump, R restarts, Esc opens the level select.<br><b>Stars:</b> 1 for finishing, 1 for 70% of the coins, 1 for no deaths.</p>
 </div></div>
-<div id="psel" hidden style="text-align:center"><h2>Select level</h2><p class="sub" id="pss"></p><div class="psg" id="psg"></div><button class="btn" id="psb">Back to menu</button></div>
+<div id="psel" hidden style="text-align:center"><h2>Select level</h2><p class="sub" id="pss"></p><div class="bar" id="psb2" style="width:min(360px,90%);margin:6px auto 12px"><i></i></div><div class="psg" id="psg"></div><button class="btn" id="psb">Back to menu</button></div>
 <div id="pgame" hidden>
 <p style="text-align:center"><button class="btn" id="pgm">Menu</button> <button class="btn" id="pgl">Levels</button> <button class="btn" id="pfr">Restart level</button></p>
 <canvas id="pf" class="gc" width="640" height="360" tabindex="0" aria-label="Cookie Run game"></canvas>
@@ -218,7 +248,9 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 <section id="snk" class="card">
 <h2>Snake</h2>
 <p class="sub">Eat cookies and grow. Don't hit the walls or yourself. Score: <b id="ssc">0</b> · Best: <b id="sbe">0</b><br>Keyboard: arrows or WASD, Space or Enter to restart.</p>
-<canvas id="sn" class="gc" width="320" height="320" style="max-width:340px" tabindex="0" aria-label="Snake game"></canvas>
+<div class="snw"><canvas id="sn" class="gc" width="320" height="320" style="max-width:340px" tabindex="0" aria-label="Snake game"></canvas>
+<div class="snm" id="snm"><h3 style="margin:0 0 4px">Choose your speed</h3><button class="btn" data-sp="230">Slow</button><button class="btn" data-sp="170">Normal</button><button class="btn" data-sp="120">Fast</button><button class="btn" data-sp="80">Insane</button></div></div>
+<p style="text-align:center;margin:10px 0 0"><button class="btn" id="snchg">Speed</button></p>
 <div class="dpad"><button class="pb" style="grid-column:2" data-d="0,-1" aria-label="Up"><i class="ar" data-r="90"></i></button><button class="pb" style="grid-column:1;grid-row:2" data-d="-1,0" aria-label="Left"><i class="ar" data-r="0"></i></button><button class="pb" style="grid-column:2;grid-row:2" data-d="0,1" aria-label="Down"><i class="ar" data-r="270"></i></button><button class="pb" style="grid-column:3;grid-row:2" data-d="1,0" aria-label="Right"><i class="ar" data-r="180"></i></button></div>
 <p class="sub" style="text-align:center">You can also swipe on the game. Tap the game to restart.</p>
 </section>
@@ -239,9 +271,28 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 <div class="ad" id="ad2"></div>
 </main>
 <footer>
-<a href="impressum.html">Legal Notice (Impressum)</a> · <a href="datenschutz.html">Privacy Policy</a> · <a href="#" id="cs">Cookie settings</a> · <a href="about.html">about</a>
+<a href="impressum.html">Legal Notice (Impressum)</a> · <a href="datenschutz.html">Privacy Policy</a> · <a href="#" id="cs">Cookie settings</a>
 <p>© 2026 Crumbly Games</p>
 </footer>
+<div class="mo" id="shopm" aria-hidden="true"><div class="card mb" role="dialog" aria-label="Shop">
+<div class="mh"><h2><span class="ic" data-i="shop"></span> Shop</h2><button class="btn mx" data-x aria-label="Close"><span class="ic" data-i="x"></span></button></div>
+<h3>Buildings</h3><div id="bld"></div>
+<h3>Click upgrades</h3><div id="clk"></div>
+<h3>Production upgrades</h3><div id="glb"></div>
+</div></div>
+<div class="mo" id="rshopm" aria-hidden="true"><div class="card mb" role="dialog" aria-label="Rebirth Shop">
+<div class="mh"><h2><span class="ic" data-i="rshop"></span> Rebirth Shop</h2><button class="btn mx" data-x aria-label="Close"><span class="ic" data-i="x"></span></button></div>
+<div><span class="pill">Tokens: <b id="rtn">0</b></span><span class="pill">Rebirths: <b id="rbn2">0</b></span></div>
+<div class="bar" id="rbar2"><i></i></div><div class="sub" id="rbt2" style="margin-bottom:10px"></div>
+<button class="it rb" id="rebirth"></button>
+<h3>Perks (permanent)</h3><div id="perks"></div>
+</div></div>
+<div class="mo" id="skinm" aria-hidden="true"><div class="card mb" role="dialog" aria-label="Skins">
+<div class="mh"><h2><span class="ic" data-i="skin"></span> Skins</h2><button class="btn mx" data-x aria-label="Close"><span class="ic" data-i="x"></span></button></div>
+<p class="sub" style="margin:0">Skins change your cookie in the Clicker and in Cookie Run. Earn crumbs by clicking or by finishing levels in Cookie Run.</p>
+<div><span class="pill">Crumbs: <b id="skc">0</b></span></div>
+<div id="skl"></div>
+</div></div>
 <div id="cb" role="dialog" aria-label="Cookie settings">
 <p>We use cookies for advertising (Google AdSense). They are only loaded with your consent. Read more in our <a href="datenschutz.html">Privacy Policy</a>. Game progress is stored locally on your device.</p>
 <div><button class="btn" id="ok" style="background:var(--grn)">Accept all</button><button class="btn" id="no">Necessary only</button></div>
@@ -249,14 +300,14 @@ footer{text-align:center;padding:24px 14px;font-weight:700}
 
 <script>
 // ===== Settings =====
-const ADSENSE_ID="ca-pub-2197797913140611"; // <- enter your AdSense publisher ID here
+const ADSENSE_ID="ca-pub-XXXXXXXXXXXXXXXX"; // <- enter your AdSense publisher ID here
 const $=s=>document.querySelector(s);
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 
 // ===== Drawn icons (replace all emojis) =====
 const SV=b=>`<svg viewBox="0 0 32 32" stroke="#2b1b12" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${b}</svg>`;
 const IC={
-cookie:'<circle cx="16" cy="16" r="13" fill="#e0a24f"/><g fill="#5a3218" stroke-width="1.2"><circle cx="10" cy="14" r="2.3"/><circle cx="21" cy="10" r="2.3"/><circle cx="21" cy="21" r="2.3"/><circle cx="13" cy="22" r="2"/></g>',
+cookie:'<circle cx="16" cy="16" r="13" fill="#dc9d55"/><path d="M7 11A10 10 0 0 1 16 6" fill="none" stroke="#f3c485" stroke-width="1.6"/><g fill="#5a3320" stroke-width="1.2"><ellipse cx="11" cy="13" rx="2.4" ry="1.9"/><ellipse cx="20" cy="10" rx="2" ry="1.6"/><ellipse cx="21" cy="19" rx="2.4" ry="1.8"/><ellipse cx="13" cy="22" rx="2.1" ry="1.7"/></g>',
 flag:'<path d="M7 29V4" stroke-width="3" fill="none"/><path d="M7 5L27 10L7 17Z" fill="#ff5a4d"/><circle cx="7" cy="4" r="2.2" fill="#ffd23f"/>',
 snake:'<path d="M6 26C6 14 26 22 26 8" fill="none" stroke-width="9"/><path d="M6 26C6 14 26 22 26 8" fill="none" stroke="#5fd068" stroke-width="5"/><circle cx="25" cy="8" r="4" fill="#5fd068"/><circle cx="26" cy="7" r="1.3" fill="#fff" stroke="none"/>',
 card:'<rect x="6" y="3" width="20" height="26" rx="4" fill="#c9b6ff"/><path d="M12.5 13a3.5 3.5 0 1 1 5 3q-1.5 1-1.5 3" fill="none" stroke-width="2.6"/><circle cx="16" cy="24" r="1.4" fill="#2b1b12"/>',
@@ -279,7 +330,11 @@ cake:'<path d="M3 26V14L29 8V26Z" fill="#f5deb3"/><path d="M3 14L29 8V13L3 19Z" 
 croissant:'<path d="M3 21Q5 8 16 8Q27 8 29 21Q25 17 22 19Q19 13 16 17Q13 13 10 19Q7 17 3 21Z" fill="#e8a94a"/><path d="M10 19L12 12M22 19L20 12M16 17V10" stroke-width="1.4" fill="none"/>',
 choc:'<rect x="6" y="5" width="20" height="24" rx="3" fill="#8a4b25"/><path d="M6 13H26M6 21H26M13 5V29M20 5V29" stroke-width="1.5" fill="none"/>',
 berry:'<path d="M16 29C6 25 4 16 6 11C10 8 22 8 26 11C28 16 26 25 16 29Z" fill="#ff4d5a"/><path d="M8 10L16 4L24 10L20 9L16 12L12 9Z" fill="#5fd068" stroke-width="1.6"/><g fill="#ffe7a0" stroke="none"><circle cx="12" cy="16" r="1.3"/><circle cx="20" cy="16" r="1.3"/><circle cx="16" cy="21" r="1.3"/><circle cx="12" cy="23" r="1.1"/><circle cx="20" cy="23" r="1.1"/></g>',
-pretzel:'<path d="M8 25C3 13 9 6 16 11C23 6 29 13 24 25M10 14L22 24M22 14L10 24" fill="none" stroke-width="7"/><path d="M8 25C3 13 9 6 16 11C23 6 29 13 24 25M10 14L22 24M22 14L10 24" fill="none" stroke="#b5692b" stroke-width="3.6"/>'
+pretzel:'<path d="M8 25C3 13 9 6 16 11C23 6 29 13 24 25M10 14L22 24M22 14L10 24" fill="none" stroke-width="7"/><path d="M8 25C3 13 9 6 16 11C23 6 29 13 24 25M10 14L22 24M22 14L10 24" fill="none" stroke="#b5692b" stroke-width="3.6"/>',
+shop:'<path d="M5 14V28H27V14" fill="#fff6dc"/><path d="M3 6H29L28 13Q25.5 17.5 22.5 13Q19.5 17.5 16.5 13Q13.5 17.5 10.5 13Q7.5 17.5 4 13Z" fill="#ff5a4d"/><path d="M10 6L8.500 13M16 6V13M22 6L23.500 13" stroke="#fff" stroke-width="2" fill="none"/><rect x="12" y="19" width="8" height="9" fill="#8fd6f5"/>',
+rshop:'<path d="M3 13V27H21V13" fill="#fff6dc"/><path d="M1.500 5H23.500L22.500 12Q20.500 16 18 12Q16 16 13.500 12Q11.500 16 9 12Q7 16 3 12Z" fill="#ff5a4d"/><path d="M7 5L6 12M12.500 5V12M18 5L19 12" stroke="#fff" stroke-width="2" fill="none"/><rect x="9" y="18" width="6" height="9" fill="#8fd6f5"/><circle cx="23.500" cy="23.500" r="8" fill="#8e5be8"/><path d="M19.500 22.500A4.200 4.200 0 0 1 27 21.500" fill="none" stroke="#fff" stroke-width="1.900"/><path d="M28.500 19.500L28 24L24 22Z" fill="#fff" stroke="none"/><path d="M27.500 24.500A4.200 4.200 0 0 1 20 25.500" fill="none" stroke="#fff" stroke-width="1.900"/><path d="M18.500 27.500L19 23L23 25Z" fill="#fff" stroke="none"/>',
+x:'<path d="M8 8L24 24M24 8L8 24" fill="none" stroke-width="5"/>',
+skin:'<path d="M16 4C9 4 4 9 4 15s5 11 10 11c2 0 3-1 3-3 0-2 1-3 3-3h3c3 0 5-2 5-5 0-6-5-11-12-11z" fill="#fff6dc"/><circle cx="10" cy="14" r="2" fill="#e85d75"/><circle cx="15" cy="9" r="2" fill="#ffd23f"/><circle cx="21" cy="11" r="2" fill="#5fd068"/><circle cx="11" cy="20" r="2" fill="#5aa9e6"/>'
 };
 const ic=n=>`<span class="ic">${SV(IC[n])}</span>`;
 document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=SV(IC[e.dataset.i]));
@@ -306,19 +361,26 @@ $("#cs").onclick=e=>{e.preventDefault();$("#cb").style.display="block"};
 consent();
 
 // ===== Crumb Clicker =====
-const B=[["Crumb Spoon",15,1,"spoon"],["Oven",100,6,"flame"],["Bakery",1100,40,"baguette"],["Factory",12000,220,"factory"],["Flour Mill",130000,1200,"wheat"],["Space Bakery",1.4e6,7000,"rocket"],["Time Machine",20e6,40000,"hourglass"],["Crumb Portal",330e6,250000,"portal"]];
-const CU=[["Strong Fingers",50],["Butter Hands",500],["Sugar Fist",5000],["Choco Click",50000],["Diamond Fingers",500000]];
-const GU=[["Better Recipes",2000],["Spice Blend",100000],["Secret Ingredient",4e6],["Galactic Dough",2e8]];
-const rbCost=()=>1e6*Math.pow(3,S.rebirths);
-let S={c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0};
+const B=[["Crumb Spoon",18,.8,"spoon"],["Oven",125,5,"flame"],["Bakery",1400,32,"baguette"],["Factory",15000,175,"factory"],["Flour Mill",160000,950,"wheat"],["Space Bakery",1.8e6,5500,"rocket"],["Time Machine",25e6,31000,"hourglass"],["Crumb Portal",400e6,190000,"portal"]];
+const CU=[["Strong Fingers",65,1],["Butter Hands",400,4],["Sugar Fist",2600,15],["Choco Click",20000,70],["Diamond Fingers",150000,350],["Golden Thumbs",1.3e6,1800],["Rocket Fists",13e6,8500],["Star Hands",130e6,42000],["Cosmic Claws",1.3e9,2e5],["Crumb God Touch",13e9,1e6]];
+const GU=[["Better Recipes",2500],["Spice Blend",125000],["Secret Ingredient",5e6],["Galactic Dough",2.5e8]];
+const PK=[["Head Start","Start every rebirth with 500 crumbs, x4 per level",1,8],["Cheap Buildings","Buildings cost 3% less per level",1,10],["Lucky Stars","Golden stars appear 6% sooner per level",2,8],["Auto Clicker","Clicks the cookie for you once per second per level",2,10],["Golden Touch","Golden stars give +30% more per level",3,10]];
+const pk=i=>(S.pk&&S.pk[i])||0,pkc=i=>Math.ceil(PK[i][2]*Math.pow(1.7,pk(i)));
+const rbCost=()=>1e6*Math.pow(3.5,S.rebirths);
+let S={c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0,rt:0,pk:[0,0,0,0,0]};
 try{const l=store.get("cc");if(l)S=Object.assign(S,JSON.parse(l))}catch(e){}
-const rbMult=()=>1+S.rp;
-const cost=i=>Math.floor(B[i][1]*Math.pow(1.12,S.b[i]));
-const clickPow=()=>Math.pow(3,S.cu)*rbMult();
-const bEach=i=>B[i][2]*Math.pow(3,S.gu)*rbMult();
-const cps=()=>B.reduce((a,x,i)=>a+x[2]*S.b[i],0)*Math.pow(3,S.gu)*rbMult();
+const rbMult=()=>1+.6*S.rp;
+const cost=i=>Math.floor(B[i][1]*Math.pow(1.14,S.b[i])*(1-.03*pk(1))*(1-skf("cheap")));
+const lvls=(k,o,n,A)=>S[k]||A.map((_,i)=>(S[o]?S[o].includes(i):i<(S[n]||0))?1:0);
+const cuL=()=>lvls("cl","cus","cu",CU),guL=()=>lvls("gl","gus","gu",GU);
+const upC=(i,l)=>Math.ceil(CU[i][1]*Math.pow(1.7,l)),upG=(i,l)=>Math.ceil(GU[i][1]*Math.pow(5,l));
+const clickAdd=()=>cuL().reduce((a,l,i)=>a+l*CU[i][2],0);
+const clickPow=()=>(1+clickAdd())*rbMult()*(1+skf("click"));
+const bEach=i=>B[i][2]*Math.pow(2.5,S.gu)*rbMult()*(1+skf("prod"));
+const cps=()=>B.reduce((a,x,i)=>a+x[2]*S.b[i],0)*Math.pow(2.5,S.gu)*rbMult()*(1+skf("prod"));
 // Big numbers: full number below 1 million, then 1.30M, 4.20B, 1.30T, 1.30q, ...
 const SUF=["","K","M","B","T","q","Q","s","S","O","N","D"];
+const fmtd=n=>n<10?(Math.round(n*10)/10).toString():fmt(n);
 const fmt=n=>{n=Math.floor(n);if(!isFinite(n))return "∞";if(n<1e6)return n.toLocaleString("en-US");
  const e=Math.min(Math.floor(Math.log10(n)/3),SUF.length-1);
  return (Math.floor(n/Math.pow(1000,e)*100)/100).toFixed(2)+SUF[e]};
@@ -327,13 +389,17 @@ function add(n){S.c+=n;S.run+=n;S.all+=n}
 
 function put(id,h){const e=$(id);if(e._h!==h){e._h=h;e.innerHTML=h}}
 function render(){
- $("#cnt").textContent=fmt(S.c);$("#cps").textContent=fmt(cps());$("#cpc").textContent=fmt(clickPow());
- $("#rbn").textContent=S.rebirths;$("#rbm").textContent="+"+fmt(S.rp*100)+"%";
+ $("#cnt").textContent=fmt(S.c);$("#cps").textContent=fmtd(cps());$("#cpc").textContent=fmt(clickPow());
+ $("#rbn").textContent=S.rebirths;$("#rbm").textContent="+"+fmt(S.rp*60)+"%";
  const g=rbGain();const r=$("#rebirth");r.disabled=S.run<rbCost();
  put("#rebirth",g>=1&&rbArm>Date.now()?`Sure? Click again: restart for +${fmt(g)} points (+${fmt(g*100)}%)`:g>=1?`${ic("sparkle")} Rebirth: +${fmt(g)} points (+${fmt(g*100)}% clicks &amp; production forever)`:`${ic("sparkle")} Rebirth at ${fmt(rbCost())} crumbs (${fmt(S.run)})`);
- put("#bld",B.map((x,i)=>`<button class="it" data-b="${i}" ${S.c<cost(i)?"disabled":""}><span>${ic(x[3])} ${x[0]} (${S.b[i]})<small>${fmt(bEach(i))}/s each · ${fmt(bEach(i)*S.b[i])}/s total</small></span><b>${fmt(cost(i))}</b></button>`).join(""));
- const up=(a,n,k)=>S[n]>=a.length?"<p class='sub'>All bought!</p>":`<button class="it" data-${k}="1" ${S.c<a[S[n]][1]?"disabled":""}><span>${a[S[n]][0]}<small>${k==="u"?`Click power x3: ${fmt(clickPow())} → ${fmt(clickPow()*3)} per click`:`All buildings x3: ${fmt(cps())}/s → ${fmt(cps()*3)}/s`}</small></span><b>${fmt(a[S[n]][1])}</b></button>`;
- put("#clk",up(CU,"cu","u"));put("#glb",up(GU,"gu","g"));
+ put("#bld",B.map((x,i)=>`<button class="it" data-b="${i}" ${S.c<cost(i)?"disabled":""}><span>${ic(x[3])} ${x[0]} (${S.b[i]})<small>${fmtd(bEach(i))}/s each · ${fmtd(bEach(i)*S.b[i])}/s total</small></span><b>${fmt(cost(i))}</b></button>`).join(""));
+ const up=(A,L,cost,d)=>A.map((x,i)=>{const l=L[i],c=cost(i,l),b=d==="g"&&l>=1;return `<button class="it${b?" done":""}" data-${d}="${i}" ${b||S.c<c?"disabled":""}><span>${x[0]}${d==="u"?` (${l})`:""}<small>${d==="u"?`+${fmtd(x[2]*rbMult())} per click each`:"All buildings x2.5 production (one-time)"}</small></span><b>${b?"Bought":fmt(c)}</b></button>`}).join("");
+ put("#clk",up(CU,cuL(),upC,"u"));put("#glb",up(GU,guL(),upG,"g"));
+ $("#rbn2").textContent=S.rebirths;$("#rtn").textContent=fmt(S.rt||0);$("#rshopb").classList.toggle("ready",S.run>=rbCost());if($("#skinm").classList.contains("open"))skinUI();
+ const pr=Math.min(1,S.run/rbCost()),rd=S.run>=rbCost(),tx=rd?"Ready to rebirth!":`Rebirth progress: ${Math.floor(pr*100)}% (${fmt(S.run)} / ${fmt(rbCost())})`;
+ ["1","2"].forEach(k=>{$("#rbar"+k).firstElementChild.style.width=pr*100+"%";$("#rbar"+k).classList.toggle("full",rd);$("#rbt"+k).textContent=tx});
+ put("#perks",PK.map((p,i)=>{const l=pk(i),m=l>=p[3];return `<button class="it" data-p="${i}" ${m||(S.rt||0)<pkc(i)?"disabled":""}><span>${p[0]} (Lv ${l}/${p[3]})<small>${p[1]}</small></span><b>${m?"MAX":fmt(pkc(i))+" tokens"}</b></button>`}).join(""));
 }
 function fx(x,y,t){const st=$("#stage"),r=st.getBoundingClientRect();
  const f=document.createElement("span");f.className="fl";f.textContent=t;f.style.left=(x-r.left-15)+"px";f.style.top=(y-r.top-20)+"px";st.appendChild(f);setTimeout(()=>f.remove(),900);
@@ -341,34 +407,50 @@ function fx(x,y,t){const st=$("#stage"),r=st.getBoundingClientRect();
 $("#crumb").onclick=e=>{const p=clickPow();add(p);const c=$("#crumb");c.classList.remove("pop");void c.offsetWidth;c.classList.add("pop");
  const r=c.getBoundingClientRect();fx(e.clientX||r.left+r.width/2,e.clientY||r.top+r.height/2,"+"+fmt(p));render()};
 $("#bld").onclick=e=>{const b=e.target.closest("[data-b]");if(!b)return;const i=+b.dataset.b;if(S.c>=cost(i)){S.c-=cost(i);S.b[i]++;render()}};
-$("#clk").onclick=e=>{if(e.target.closest("[data-u]")&&S.cu<CU.length&&S.c>=CU[S.cu][1]){S.c-=CU[S.cu][1];S.cu++;render()}};
-$("#glb").onclick=e=>{if(e.target.closest("[data-g]")&&S.gu<GU.length&&S.c>=GU[S.gu][1]){S.c-=GU[S.gu][1];S.gu++;render()}};
+const buyU=(k,n,L,cost,d,mx)=>e=>{const b=e.target.closest("[data-"+d+"]");if(!b)return;const i=+b.dataset[d],l=L(),c=cost(i,l[i]);if(S.c<c||l[i]>=mx)return;S.c-=c;l[i]++;S[k]=l;S[n]=l.reduce((a,x)=>a+x,0);render()};
+$("#clk").onclick=buyU("cl","cu",cuL,upC,"u",1e9);$("#glb").onclick=buyU("gl","gu",guL,upG,"g",1);
+const SKINS=[{id:"classic",n:"Classic",p:0,b:"#dc9d55",h:"#f3c485",c:"#5a3320",s:"#a86a26",d:"No special ability",fx:{}},{id:"choc",n:"Dark Choco",p:500,b:"#7a4a2e",h:"#a8714e",c:"#f1dcb8",s:"#4e2c18",d:"+10% click power · +8% run speed",fx:{click:.1,spd:.08}},{id:"straw",n:"Strawberry",p:2500,b:"#f58ca6",h:"#ffc2d1",c:"#fff6dc",s:"#c25d7a",d:"+10% production · +6% jump height",fx:{prod:.1,jump:.06}},{id:"mint",n:"Minty",p:1e4,b:"#7fd6b5",h:"#b8f0dc",c:"#2f7a62",s:"#4fa88a",d:"Golden stars 15% sooner · glide: hold jump to fall slowly",fx:{goldT:.15,glide:1}},{id:"berry",n:"Blueberry",p:4e4,b:"#6f8cff",h:"#a9baff",c:"#2b3a8f",s:"#4b64cc",d:"Buildings 5% cheaper · shield: survives 1 hit per attempt",fx:{cheap:.05,shield:1}},{id:"gold",n:"Golden",p:25e4,b:"#ffd23f",h:"#fff0a0",c:"#c78a00",s:"#d9a400",d:"Golden stars +50% · coin magnet · +25% level crumbs",fx:{goldB:.5,magnet:40,coinB:.25}},{id:"galaxy",n:"Galaxy",p:2e6,b:"#3b2a6b",h:"#7a5fc4",c:"#ffd23f",s:"#241848",d:"+20% click and production · double jump",fx:{click:.2,prod:.2,dj:1}}];
+function skf(k){try{const f=sk().fx;return f&&f[k]||0}catch{return 0}}
+function sk(){return SKINS.find(x=>x.id===S.skS)||SKINS[0]}
+const skOwn=id=>id==="classic"||(S.skO||[]).includes(id);
+const cookieSVG=k=>`<svg viewBox="0 0 200 200" aria-hidden="true"><g stroke="#3b2417" stroke-width="6" stroke-linejoin="round"><circle cx="100" cy="100" r="90" fill="${k.b}"/><path d="M40 70A70 70 0 0 1 100 30" fill="none" stroke="${k.h}" stroke-linecap="round"/><g fill="${k.c}" stroke-width="4"><ellipse cx="70" cy="75" rx="12" ry="9"/><ellipse cx="128" cy="62" rx="10" ry="8"/><ellipse cx="140" cy="115" rx="13" ry="9"/><ellipse cx="90" cy="130" rx="11" ry="9"/><ellipse cx="58" cy="118" rx="8" ry="6"/><ellipse cx="112" cy="95" rx="7" ry="5"/></g></g></svg>`;
+const applySkin=()=>{$("#crumb").innerHTML=cookieSVG(sk())};
+function skinUI(){$("#skc").textContent=fmt(S.c);put("#skl",SKINS.map(k=>{const o=skOwn(k.id),e=sk().id===k.id;return `<button class="it${e?" done":""}" data-k="${k.id}" ${(!o&&S.c<k.p)||e?"disabled":""}><span class="sksv">${cookieSVG(k)}</span><span>${k.n}<small>${k.d}</small></span><b>${e?"On":o?"Equip":fmt(k.p)}</b></button>`}).join(""))}
+$("#skl").onclick=e=>{const b=e.target.closest("[data-k]");if(!b)return;const k=SKINS.find(x=>x.id===b.dataset.k);if(!skOwn(k.id)){if(S.c<k.p)return;S.c-=k.p;S.skO=(S.skO||[]).concat(k.id)}S.skS=k.id;applySkin();skinUI();save();render()};
+const openSkins=()=>{skinUI();mo("#skinm",true)};
+$("#skinb").onclick=openSkins;$("#pm-skin").onclick=openSkins;applySkin();
 let rbArm=0,rsArm=0;
+function flash(){const d=document.createElement("div");d.style.cssText="position:fixed;inset:0;background:#fff;z-index:60;pointer-events:none";document.body.append(d);d.animate([{opacity:.9},{opacity:0}],{duration:800}).onfinish=()=>d.remove()}
+const mo=(id,o)=>{const m=$(id);m.classList.toggle("open",o);m.setAttribute("aria-hidden",!o)};
+$("#shopb").onclick=()=>mo("#shopm",true);$("#rshopb").onclick=()=>mo("#rshopm",true);
+document.querySelectorAll(".mo").forEach(m=>m.onclick=e=>{if(e.target===m||e.target.closest("[data-x]"))mo("#"+m.id,false)});
+addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".mo.open").forEach(m=>mo("#"+m.id,false))});
+$("#perks").onclick=e=>{const b=e.target.closest("[data-p]");if(!b)return;const i=+b.dataset.p;if(pk(i)>=PK[i][3]||(S.rt||0)<pkc(i))return;S.rt-=pkc(i);S.pk=S.pk||[0,0,0,0,0];S.pk[i]=pk(i)+1;save();render()};
 $("#rebirth").onclick=()=>{const g=rbGain();if(g<1)return;
  if(Date.now()>rbArm){rbArm=Date.now()+4000;render();return}
- rbArm=0;S.rp+=g;S.rebirths++;S.c=0;S.run=0;S.b=B.map(()=>0);S.cu=0;S.gu=0;save(1);render()};
+ rbArm=0;S.rp+=g;S.rt=(S.rt||0)+g;S.rebirths++;S.c=pk(0)?500*Math.pow(4,pk(0)-1):0;flash();S.run=0;S.b=B.map(()=>0);S.cu=0;S.gu=0;S.cl=CU.map(()=>0);S.gl=GU.map(()=>0);save(1);render()};
 $("#reset").onclick=()=>{
  if(Date.now()>rsArm){rsArm=Date.now()+4000;$("#reset").textContent="Click again to delete";setTimeout(()=>$("#reset").textContent="Delete save",4000);return}
- rsArm=0;S={c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0};$("#reset").textContent="Delete save";save(1);render()};
+ rsArm=0;S={c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0,rt:0,pk:[0,0,0,0,0]};$("#reset").textContent="Delete save";save(1);render()};
 function save(f){store.set("cc",JSON.stringify(S));pushCloud(f)}
 let last=Date.now();
-setInterval(()=>{const n=Date.now(),d=(n-last)/1000;last=n;add(cps()*d);S.mc=Math.max(S.mc||0,cps());S.mk=Math.max(S.mk||0,clickPow());render()},250);
+setInterval(()=>{const n=Date.now(),d=(n-last)/1000;last=n;add((cps()+clickPow()*pk(3))*d);S.mc=Math.max(S.mc||0,cps());S.mk=Math.max(S.mk||0,clickPow());render()},250);
 setInterval(save,5000);
 // Golden star
 function golden(){
  const st=$("#stage"),g=document.createElement("button");g.id="gold";g.innerHTML=ic("star");g.setAttribute("aria-label","Golden star");
  g.style.left=(10+Math.random()*75)+"%";g.style.top=(15+Math.random()*65)+"%";
- g.onclick=e=>{const bonus=Math.max(cps()*60,clickPow()*100);add(bonus);fx(e.clientX,e.clientY,"+"+fmt(bonus));g.remove()};
+ g.onclick=e=>{const bonus=Math.max(cps()*30,clickPow()*50)*(1+.3*pk(4)+skf("goldB"));add(bonus);fx(e.clientX,e.clientY,"+"+fmt(bonus));g.remove()};
  st.appendChild(g);setTimeout(()=>g.remove(),10000);
 }
-(function loop(){setTimeout(()=>{golden();loop()},45000+Math.random()*45000)})();
+(function loop(){setTimeout(()=>{golden();loop()},(45000+Math.random()*45000)*(1-.06*pk(2)-skf("goldT")))})();
 render();
 
 // ===== Cloud save (Firebase: Google sign-in) =====
 const FIREBASE_CONFIG={apiKey:"AIzaSyCO3qEVyIRyxTQAb7I8ytiAvI6vRxSqO00",authDomain:"crumbclicker.firebaseapp.com",projectId:"crumbclicker",storageBucket:"crumbclicker.firebasestorage.app",messagingSenderId:"566011859684",appId:"1:566011859684:web:b5afa738bd26a8662a92f1"};
 const noCfg=()=>FIREBASE_CONFIG.apiKey.startsWith("YOUR");
 let cloud=null,cloudP=null,lastPush=0,delArm=0;
-const DEF=()=>({c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0});
+const DEF=()=>({c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0,rt:0,pk:[0,0,0,0,0]});
 function status(t){const e=$("#cst");if(e)e.textContent=t}
 function loadSDK(){return cloudP||(cloudP=new Promise((res,rej)=>{
  const u="https://www.gstatic.com/firebasejs/10.12.2/firebase-";
@@ -435,10 +517,11 @@ document.addEventListener("visibilitychange",()=>{if(document.hidden)save(1)});
 acct();if(store.get("cloudOn")==="1"&&!noCfg())loadSDK().catch(()=>status("Could not reach the cloud"));
 
 // ===== Memory =====
-const EM=["donut","cupcake","cake","croissant","cookie","choc","berry","pretzel"];let first=null,lock=false,mv=0,found=0;
-function newMem(){const g=$("#mg");mv=0;found=0;first=null;$("#mv").textContent=0;
+const EM=[0,1,2,3,4,5,6,7],SY=[["#e8833a",'<circle cx="20" cy="20" r="14"/>'],["#5aa9e6",'<rect x="7" y="7" width="26" height="26" rx="4"/>'],["#8cc152",'<path d="M20 6 35 33H5z"/>'],["#f2b705",'<path d="M20 4l4.6 10.6 11.4 1-8.6 7.6 2.6 11.2L20 28.4 9.9 34.4l2.7-11.2L4 15.6l11.4-1z"/>'],["#b78bff",'<path d="M20 4 35 20 20 36 5 20z"/>'],["#e85d75",'<path d="M20 34C6 24 5 14 11 10c4-2 8 0 9 4 1-4 5-6 9-4 6 4 5 14-9 24z"/>'],["#4fc3a1",'<path d="M15 5h10v10h10v10H25v10H15V25H5V15h10z"/>'],["#ffd23f",'<path d="M26 6a15 15 0 1 0 8 22A12 12 0 0 1 26 6z"/>']];
+const sym=k=>`<svg viewBox="0 0 40 40"><g fill="${SY[k][0]}" stroke="#3b2417" stroke-width="3" stroke-linejoin="round">${SY[k][1]}</g></svg>`;let first=null,lock=false,mv=0,found=0;
+function newMem(){const g=$("#mg");mv=0;found=0;first=null;lock=false;$("#mv").textContent=0;
  const d=[...EM,...EM].sort(()=>Math.random()-.5);
- g.innerHTML=d.map(e=>`<button class="mc" data-e="${e}" aria-label="Card"><span>${SV(IC[e])}</span></button>`).join("")}
+ g.innerHTML=d.map((e,i)=>`<button class="mc" style="animation-delay:${i*40}ms" data-e="${e}" aria-label="Card"><i class="mi"><i class="fa">${SV(IC.cookie)}</i><i class="ba">${sym(e)}</i></i></button>`).join("")}
 $("#mg").onclick=e=>{const c=e.target.closest(".mc");if(!c||lock||c===first||c.classList.contains("m"))return;
  c.classList.add("f");if(!first){first=c;return}
  mv++;$("#mv").textContent=mv;
@@ -452,9 +535,9 @@ let best=+store.get("best")||0;if(best)$("#best").textContent=best+" ms";
 function idle(t){rb.textContent=t;rb.style.background="#ff5a4d";st="idle"}
 idle("Click to start");
 rb.onclick=()=>{
- if(st==="idle"){st="wait";rb.textContent="Wait for it …";rb.style.background="#f0a020";to=setTimeout(()=>{st="go";t0=performance.now();rb.textContent="NOW!";rb.style.background="#3fc060"},1500+Math.random()*3000)}
- else if(st==="wait"){clearTimeout(to);idle("Too early! Click to try again.")}
- else{const ms=Math.round(performance.now()-t0);idle(`${ms} ms – again?`);if(!best||ms<best){best=ms;store.set("best",ms);$("#best").textContent=ms+" ms"}}
+ if(st==="idle"){st="wait";rb.textContent="Wait for it …";rb.style.background="#f0a020";to=setTimeout(()=>{st="go";t0=performance.now();rb.textContent="NOW!";rb.style.background="#3fc060";rb.animate([{transform:"scale(.93)"},{transform:"scale(1.04)"},{transform:"none"}],{duration:260})},1500+Math.random()*3000)}
+ else if(st==="wait"){clearTimeout(to);idle("Too early! Click to try again.");rb.animate([{transform:"translateX(-12px)"},{transform:"translateX(12px)"},{transform:"translateX(-8px)"},{transform:"none"}],{duration:300})}
+ else{const ms=Math.round(performance.now()-t0);idle(`${ms} ms – again?`);rb.animate([{transform:"scale(1.05) rotate(-1deg)"},{transform:"none"}],{duration:300});if(!best||ms<best){best=ms;store.set("best",ms);$("#best").textContent=ms+" ms"}}
 };
 
 // ===== Platformer (Cookie Run) =====
@@ -495,7 +578,7 @@ const sol=(c,r)=>r<0?false:c<0||c>=G[0].length?true:r>=9?false:G[r][c]===1;
 const col=o=>{for(let r=Math.floor(o.y/T);r<=Math.floor((o.y+PH-.01)/T);r++)for(let c=Math.floor(o.x/T);c<=Math.floor((o.x+PW-.01)/T);c++)if(sol(c,r))return true;return false};
 const rr=(x,y,w,h,r)=>{g.beginPath();g.roundRect?g.roundRect(x,y,w,h,r):g.rect(x,y,w,h)};
 function burst(x,y,n,c){for(let i=0;i<n;i++)parts.push({x,y,vx:(Math.random()-.5)*6,vy:-Math.random()*5,l:30,c})}
-function spawn(){p={x:2*T,y:6*T+6,vx:0,vy:0,g:0,f:1};coy=0;jb=0}
+function spawn(){p={x:2*T,y:6*T+6,vx:0,vy:0,g:0,f:1};coy=0;jb=0;sh=skf("shield");inv=0;dj=skf("dj")}
 function load(n){const L=LV[n];G=[];for(let r=0;r<9;r++)G[r]=Array(L.w).fill(0);
  for(let c=0;c<L.w;c++)G[7][c]=G[8][c]=1;
  L.gaps.forEach(([c,n])=>{for(let i=0;i<n;i++)G[7][c+i]=G[8][c+i]=0});
@@ -505,28 +588,32 @@ function load(n){const L=LV[n];G=[];for(let r=0;r<9;r++)G[r]=Array(L.w).fill(0);
  L.gaps.forEach(([c])=>coins.push({x:c+1,y:5}));L.coins.forEach(([x,y])=>coins.push({x,y}));
  en=L.enemies.map(([c,r])=>({x:c*T+5,y:(r+1)*T-30,vx:L.es||1.2,dead:0}));
  lc=0;parts=[];cam=0;spawn()}
-function die(){deaths++;fl=12;burst(p.x+13,p.y+17,16,"#e0a24f");spawn()}
+function die(){if(p.y<H&&(inv>0||sh>0)){if(inv<=0){sh--;inv=90;p.vy=-9;fl=4;burst(p.x+13,p.y+17,10,"#8fd6f5")}return}deaths++;fl=12;burst(p.x+13,p.y+17,16,"#e0a24f");spawn()}
 function advance(){if(st==="win")start(li+1);else if(st==="done")show("sel")}
 function step(){
  if(st!=="play"){msgT++;if(jb>0&&msgT>40){jb=0;advance()}jb--;return}
- msgT=0;const ax=k.r-k.l;
- p.vx+=ax*.9;if(!ax)p.vx*=.78;p.vx=Math.max(-4.4,Math.min(4.4,p.vx));if(Math.abs(p.vx)<.1)p.vx=0;if(ax)p.f=ax;
+ msgT=0;if(inv>0)inv--;const ax=k.r-k.l;
+ p.vx+=ax*.9;if(!ax)p.vx*=.78;const mx=4.4*(1+skf("spd"));p.vx=Math.max(-mx,Math.min(mx,p.vx));if(Math.abs(p.vx)<.1)p.vx=0;if(ax)p.f=ax;
  coy=p.g?7:coy-1;jb--;
- if(jb>0&&coy>0){p.vy=-11.5;coy=0;jb=0;p.g=0;burst(p.x+13,p.y+34,4,"#fff")}
+ if(jb>0&&coy>0){p.vy=-11.5*(1+skf("jump"));coy=0;jb=0;p.g=0;burst(p.x+13,p.y+34,4,"#fff")}
+ else if(jb>0&&dj>0&&!p.g){p.vy=-10;dj--;jb=0;burst(p.x+13,p.y+34,7,"#fff")}
  if(!k.j&&p.vy<-4)p.vy=-4;
- p.vy=Math.min(p.vy+.55,14);
+ p.vy=Math.min(p.vy+.55,14);if(k.j&&p.vy>2.6&&skf("glide"))p.vy=2.6;
  p.x+=p.vx;if(col(p)){p.x=p.vx>0?Math.floor((p.x+PW)/T)*T-PW:(Math.floor(p.x/T)+1)*T;p.vx=0}
- p.y+=p.vy;p.g=0;if(col(p)){if(p.vy>0){p.y=Math.floor((p.y+PH)/T)*T-PH;p.g=1}else p.y=(Math.floor(p.y/T)+1)*T;p.vy=0}
+ const vy0=p.vy;p.y+=p.vy;p.g=0;if(col(p)){if(p.vy>0){p.y=Math.floor((p.y+PH)/T)*T-PH;p.g=1}else p.y=(Math.floor(p.y/T)+1)*T;p.vy=0}
+ if(p.g)dj=skf("dj");
+ if(p.g&&vy0>6)burst(p.x+13,p.y+PH,7,"#f3e6bd");
+ if(p.g&&Math.abs(p.vx)>3.5&&(dust=(dust+1)%7)===0)burst(p.x+13-p.f*9,p.y+PH,2,"#f3e6bd");
  for(let c=Math.floor((p.x+6)/T);c<=Math.floor((p.x+PW-6)/T);c++){
   if(G[6][c]===2&&p.y+PH>6*T+16)return die();
   if(G[6][c]===3&&p.vy>=0&&p.y+PH>6*T+24){p.vy=-16.5;p.g=0;coy=0;burst(p.x+13,p.y+34,8,"#ffd23f")}}
  if(p.y>H+50)return die();
- for(const c of coins)if(!c.t&&Math.abs(p.x+13-(c.x*T+20))<24&&Math.abs(p.y+17-(c.y*T+20))<26){c.t=1;lc++;burst(c.x*T+20,c.y*T+20,5,"#ffd23f")}
+ const MG=skf("magnet");for(const c of coins)if(!c.t&&Math.abs(p.x+13-(c.x*T+20))<24+MG&&Math.abs(p.y+17-(c.y*T+20))<26+MG){c.t=1;lc++;burst(c.x*T+20,c.y*T+20,5,"#ffd23f")}
  for(const e of en){if(e.dead)continue;
   const nx=e.x+e.vx,ah=Math.floor((e.vx>0?nx+30:nx)/T),rf=Math.floor((e.y+32)/T),rw=Math.floor((e.y+15)/T);
   if(sol(ah,rw)||(G[rw]&&G[rw][ah]===2)||!sol(ah,rf))e.vx=-e.vx;else e.x=nx;
   if(p.x<e.x+30&&p.x+PW>e.x&&p.y<e.y+30&&p.y+PH>e.y){
-   if(p.vy>0&&p.y+PH-p.vy<=e.y+14){e.dead=1;p.vy=k.j?-12:-8;burst(e.x+15,e.y+20,10,"#b05be0")}else return die()}}
+   if(p.vy>0&&p.y+PH-p.vy<=e.y+14){e.dead=1;fl=5;p.vy=k.j?-12:-8;burst(e.x+15,e.y+20,10,"#b05be0")}else return die()}}
  if(p.x>(G[0].length-3)*T){st=li===LV.length-1?"done":"win";msgT=0;finish()}
  for(const q of parts){q.x+=q.vx;q.y+=q.vy;q.vy+=.3;q.l--}parts=parts.filter(q=>q.l>0);
 }
@@ -637,13 +724,14 @@ function draw(){
  if(gr<9){const d=Math.max(0,gr*T-p.y-PH);g.fillStyle="rgba(0,0,0,.2)";g.beginPath();g.ellipse(px+3,gr*T-3,Math.max(5,15-d/10),4,0,0,7);g.fill()}
  g.save();g.translate(px,py+15);g.scale(1-sq,1+sq);g.translate(-px,-(py+15));
  g.fillStyle="#5a3218";if(Math.abs(p.vx)>.5&&p.g){const o=Math.sin(now/60)*5;g.beginPath();g.ellipse(px-6+o,py+15,5,3,0,0,7);g.ellipse(px+6-o,py+15,5,3,0,0,7);g.fill()}
- g.fillStyle="#a86a26";g.beginPath();g.arc(px+4,py+4,15,0,7);g.fill();g.stroke();
- g.fillStyle="#e0a24f";g.beginPath();g.arc(px,py,15,0,7);g.fill();g.stroke();
- g.strokeStyle="#f6cf8a";g.lineWidth=3;g.beginPath();g.arc(px,py,10,3.6,4.6);g.stroke();g.strokeStyle=INK;
- g.save();g.translate(px,py);g.rotate(p.rot);g.fillStyle="#5a3218";for(const d of[[-8,-7],[8,5],[-4,9],[7,-8]]){g.beginPath();g.arc(d[0],d[1],2.5,0,7);g.fill()}g.restore();
+ g.fillStyle=sk().s;g.beginPath();g.arc(px+4,py+4,15,0,7);g.fill();g.stroke();
+ g.fillStyle=sk().b;g.beginPath();g.arc(px,py,15,0,7);g.fill();g.stroke();
+ g.strokeStyle=sk().h;g.lineWidth=3;g.beginPath();g.arc(px,py,10,3.6,4.6);g.stroke();g.strokeStyle=INK;
+ g.save();g.translate(px,py);g.rotate(p.rot);g.fillStyle=sk().c;for(const d of[[-8,-7],[8,5],[-4,9],[7,-8]]){g.beginPath();g.arc(d[0],d[1],2.5,0,7);g.fill()}g.restore();
  g.fillStyle="#fff";for(const e of[-4,5]){g.beginPath();g.arc(px+e+p.f*2,py-2,4,0,7);g.fill();g.stroke()}
  g.fillStyle=INK;for(const e of[-4,5]){g.beginPath();g.arc(px+e+p.f*3,py-2,1.6,0,7);g.fill()}
  g.lineWidth=2;g.beginPath();g.arc(px+p.f*2,py+4,4,.3,Math.PI-.3);g.stroke();g.restore();
+ if(sh>0||inv>0){g.strokeStyle=inv>0&&Math.floor(now/80)%2?"rgba(143,214,245,.3)":"rgba(143,214,245,.95)";g.lineWidth=3;g.beginPath();g.arc(px,py,21,0,7);g.stroke()}
  for(const q of parts){g.globalAlpha=q.l/30;g.fillStyle=q.c;g.fillRect(q.x-3,q.y-3,6,6)}g.globalAlpha=1;
  g.restore();
  g.lineWidth=3;g.strokeStyle=INK;g.fillStyle="rgba(255,246,220,.92)";rr(8,8,290,30,15);g.fill();g.stroke();
@@ -651,14 +739,17 @@ function draw(){
  let hx=20;const t1="Level "+(li+1)+"/"+LV.length;g.fillText(t1,hx,29);hx+=g.measureText(t1).width+16;
  coin3d(hx+8,23,8,now/300);hx+=22;const t2=String(base+lc);g.fillText(t2,hx,29);hx+=g.measureText(t2).width+16;
  skull(hx+8,23);hx+=22;g.fillText(String(deaths),hx,29);
+ {const pr=Math.max(0,Math.min(1,p.x/((LW-3)*T)));g.lineWidth=3;g.strokeStyle=INK;g.fillStyle="rgba(255,246,220,.92)";rr(308,8,324,30,15);g.fill();g.stroke();
+  g.save();rr(318,16,304,14,7);g.clip();g.fillStyle="#fff";g.fillRect(318,16,304,14);g.fillStyle="#5fd068";g.fillRect(318,16,304*pr,14);g.fillStyle="rgba(255,255,255,.35)";for(let i=0;i<304*pr;i+=24){g.beginPath();g.moveTo(318+i,30);g.lineTo(318+i+10,16);g.lineTo(318+i+20,16);g.lineTo(318+i+10,30);g.fill()}g.restore();
+  rr(318,16,304,14,7);g.stroke();g.fillStyle="#ffd23f";g.beginPath();g.arc(318+304*pr,23,8,0,7);g.fill();g.stroke()}
  if(st!=="play"){g.lineWidth=3;g.strokeStyle=INK;g.fillStyle="rgba(255,246,220,.95)";rr(70,100,W-140,150,20);g.fill();g.stroke();
-  for(let i=-1;i<=1;i++)star(W/2+i*36,128,i?12:16,"#ffd23f");
+  for(let i=-1;i<=1;i++)star(W/2+i*36,128,i?12:16,st==="done"||st==="win"?(lastS>=i+2?"#ffd23f":"#e8dcc0"):"#ffd23f");
   g.textAlign="center";g.fillStyle=INK;
   g.font="bold 28px sans-serif";g.fillText(st==="win"?"Level "+(li+1)+" complete!":"You finished all levels!",W/2,172);
-  g.font="18px sans-serif";g.fillText(st==="win"?"Coins so far: "+(base+lc):"Coins: "+(base+lc)+" · Deaths: "+deaths,W/2,200);
+  g.font="18px sans-serif";g.fillText(st==="win"?"Coins so far: "+(base+lc)+" · +"+fmt(lastR)+" crumbs":"Coins: "+(base+lc)+" · Deaths: "+deaths+" · +"+fmt(lastR)+" crumbs",W/2,200);
   g.fillText("Tap the game, press Enter or Jump to "+(st==="win"?"continue":"go to the menu"),W/2,228)}
 }
-let last=0,acc=0;
+let last=0,acc=0,dust=0,lastS=3,lastR=0,sh=0,inv=0,dj=0;
 function loop(ts){requestAnimationFrame(loop);
  if(!inG()){last=ts;return}
  acc+=Math.min(ts-last,100);last=ts;while(acc>=16.67){step();acc-=16.67}draw()}
@@ -685,18 +776,19 @@ let P={u:1,s:{},c:{}};try{Object.assign(P,JSON.parse(store.get("pfp")||"{}"))}ca
 const inG=()=>$("#plat").classList.contains("on")&&!$("#pgame").hidden;
 const sum=()=>Object.values(P.s).reduce((a,b)=>a+b,0);
 function start(n){li=n;base=0;deaths=0;load(n);st="play";show("game")}
-function finish(){const s=1+(lc>=Math.ceil(coins.length*.7)?1:0)+(deaths===0?1:0);
+function finish(){const s=1+(lc>=Math.ceil(coins.length*.7)?1:0)+(deaths===0?1:0);lastS=s;lastR=Math.floor(Math.max(100,cps()*40+clickPow()*30)*(.4*Math.min(1,lc/Math.max(1,coins.length))+.2*s)*(1+skf("coinB")));S.c+=lastR;save();
  P.s[li]=Math.max(P.s[li]||0,s);P.c[li]=Math.max(P.c[li]||0,lc);
  P.u=Math.max(P.u,Math.min(li+2,LV.length));store.set("pfp",JSON.stringify(P))}
 function show(v){["menu","sel","game"].forEach(x=>$("#p"+x).hidden=x!==v);
  if(v==="menu")buildMenu();if(v==="sel")buildSel();if(v==="game")cv.focus({preventScroll:true});
  for(const c in kd)kd[c]=0;for(const id in held)delete held[id];calc()}
-function buildMenu(){const n=Math.min(P.u,LV.length);
+const sbar=()=>["psb1","psb2"].forEach(i=>$("#"+i).firstElementChild.style.width=sum()/(LV.length*3)*100+"%");
+function buildMenu(){sbar();const n=Math.min(P.u,LV.length);
  $("#pm-pt").textContent=P.u>1||sum()?"Continue (Level "+n+")":"Play";
- $("#pst").textContent="Levels unlocked: "+n+"/"+LV.length+" · Stars: "+sum()+"/"+LV.length*3}
-function buildSel(){$("#pss").textContent="Stars: "+sum()+"/"+LV.length*3;
+ $("#pst").textContent="Levels unlocked: "+n+"/"+LV.length+" · Stars: "+sum()+"/"+LV.length*3+" · Crumbs: "+fmt(S.c)}
+function buildSel(){sbar();$("#pss").textContent="Stars: "+sum()+"/"+LV.length*3;
  $("#psg").innerHTML=LV.map((_,n)=>{const lk=n>=P.u,s=P.s[n]||0;
-  return `<button class="lv" data-n="${n}" ${lk?"disabled":""}>${lk?ic("lock"):"<b>"+(n+1)+"</b>"}<span class="stars">${[1,2,3].map(i=>`<i class="${i<=s?"on":""}">${ic("star")}</i>`).join("")}</span></button>`}).join("")}
+  return `<button class="lv${n===Math.min(P.u,LV.length)-1?" cur":""}" data-n="${n}" ${lk?"disabled":""}>${lk?ic("lock"):"<b>"+(n+1)+"</b>"}<span class="stars">${[1,2,3].map(i=>`<i class="${i<=s?"on":""}">${ic("star")}</i>`).join("")}</span></button>`}).join("")}
 $("#pm-play").onclick=()=>start(Math.min(P.u-1,LV.length-1));
 $("#pm-sel").onclick=()=>show("sel");
 $("#pm-how").onclick=()=>{const h=$("#phow");h.hidden=!h.hidden};
@@ -707,32 +799,41 @@ load(0);show("menu");requestAnimationFrame(loop);
 
 // ===== Snake =====
 (function(){
-const cv=$("#sn"),g=cv.getContext("2d"),N=16,Z=20;let s,d,nd,f,sc,over,best=+store.get("snb")||0;
+const cv=$("#sn"),g=cv.getContext("2d"),N=16,Z=20;let SP=170,menu=1,iv,ps,lt=0,s,d,nd,f,sc,over,best=+store.get("snb")||0;
 $("#sbe").textContent=best;
 const food=()=>{let a;do{a=[Math.random()*N|0,Math.random()*N|0]}while(s.some(c=>c[0]===a[0]&&c[1]===a[1]));return a};
-function init(){s=[[8,8],[7,8],[6,8]];d=[1,0];nd=d;f=food();sc=0;over=0;$("#ssc").textContent=0;draw()}
+function init(){s=[[8,8],[7,8],[6,8]];ps=s.map(c=>c.slice());lt=0;d=[1,0];nd=d;f=food();sc=0;over=0;$("#ssc").textContent=0;draw()}
 function dir(a,b){if(a+d[0]||b+d[1])nd=[a,b]}
 function tick(){
- if(over||!$("#snk").classList.contains("on"))return;
+ if(menu||over||!$("#snk").classList.contains("on"))return;
  d=nd;const h=[s[0][0]+d[0],s[0][1]+d[1]];
  if(h[0]<0||h[1]<0||h[0]>=N||h[1]>=N||s.some(c=>c[0]===h[0]&&c[1]===h[1])){over=1;draw();return}
- s.unshift(h);
+ ps=s.map(c=>c.slice());lt=performance.now();s.unshift(h);
  if(h[0]===f[0]&&h[1]===f[1]){sc++;$("#ssc").textContent=sc;if(sc>best){best=sc;store.set("snb",best);$("#sbe").textContent=best}f=food()}else s.pop();
  draw()}
 function draw(){
+ const now=performance.now(),t=over?1:Math.min(1,(now-lt)/SP);
  g.fillStyle="#fff6dc";g.fillRect(0,0,320,320);g.fillStyle="#f3e6bd";
  for(let i=0;i<N;i++)for(let j=0;j<N;j++)if((i+j)%2)g.fillRect(i*Z,j*Z,Z,Z);
- // drawn cookie as food
  const fx=f[0]*Z+10,fy=f[1]*Z+10;
- g.lineWidth=2;g.strokeStyle="#2b1b12";g.fillStyle="#e0a24f";g.beginPath();g.arc(fx,fy,8.5,0,7);g.fill();g.stroke();
- g.fillStyle="#5a3218";for(const o of[[-3,-2],[3,-3],[2,3],[-3,4]]){g.beginPath();g.arc(fx+o[0],fy+o[1],1.7,0,7);g.fill()}
- s.forEach((c,i)=>{g.fillStyle=i?"#5fd068":"#3fc060";g.beginPath();g.roundRect?g.roundRect(c[0]*Z+1,c[1]*Z+1,Z-2,Z-2,6):g.rect(c[0]*Z+1,c[1]*Z+1,Z-2,Z-2);g.fill();g.stroke()});
- g.fillStyle="#fff";for(const o of[-4,4]){g.beginPath();g.arc(s[0][0]*Z+10+d[0]*3+(d[0]?0:o),s[0][1]*Z+10+d[1]*3+(d[1]?0:o),3,0,7);g.fill()}
+ g.lineWidth=2;g.strokeStyle="#2b1b12";g.fillStyle="#dc9d55";g.beginPath();g.arc(fx,fy,8.5+Math.sin(now/180)*.8,0,7);g.fill();g.stroke();
+ g.fillStyle="#5a3320";for(const o of[[-3,-2],[3,-3],[2,3],[-3,4]]){g.beginPath();g.arc(fx+o[0],fy+o[1],1.7,0,7);g.fill()}
+ const P=s.map((c,i)=>{const a=ps[i]||ps[ps.length-1];return[(a[0]+(c[0]-a[0])*t)*Z+10,(a[1]+(c[1]-a[1])*t)*Z+10]});
+ g.lineJoin=g.lineCap="round";
+ const path=()=>{g.beginPath();g.moveTo(P[0][0],P[0][1]);for(let i=1;i<P.length-1;i++)g.quadraticCurveTo(P[i][0],P[i][1],(P[i][0]+P[i+1][0])/2,(P[i][1]+P[i+1][1])/2);const q=P[P.length-1];g.lineTo(q[0],q[1])};
+ path();g.strokeStyle="#2b1b12";g.lineWidth=18;g.stroke();
+ path();g.strokeStyle="#5fd068";g.lineWidth=13;g.stroke();
+ path();g.strokeStyle="rgba(255,255,255,.35)";g.lineWidth=4;g.stroke();
+ const h=P[0],px=-d[1],py=d[0];
+ g.fillStyle="#3fc060";g.strokeStyle="#2b1b12";g.lineWidth=2.5;g.beginPath();g.arc(h[0],h[1],10.5,0,7);g.fill();g.stroke();
+ for(const o of[-1,1]){const ex=h[0]+d[0]*3+px*o*4.5,ey=h[1]+d[1]*3+py*o*4.5;g.fillStyle="#fff";g.lineWidth=1.5;g.beginPath();g.arc(ex,ey,3.6,0,7);g.fill();g.stroke();g.fillStyle="#2b1b12";g.beginPath();g.arc(ex+d[0]*1.2,ey+d[1]*1.2,1.7,0,7);g.fill()}
+ if(!over&&Math.floor(now/350)%2){const ux=h[0]+d[0]*17,uy=h[1]+d[1]*17;g.strokeStyle="#ff5a4d";g.lineWidth=2;g.beginPath();g.moveTo(h[0]+d[0]*10,h[1]+d[1]*10);g.lineTo(ux,uy);g.lineTo(ux+d[0]*3+px*3,uy+d[1]*3+py*3);g.moveTo(ux,uy);g.lineTo(ux+d[0]*3-px*3,uy+d[1]*3-py*3);g.stroke()}
  if(over){g.fillStyle="rgba(255,246,220,.9)";g.fillRect(0,110,320,100);g.fillStyle="#2b1b12";g.font="bold 24px sans-serif";g.textAlign="center";g.textBaseline="middle";g.fillText("Game over – tap to retry",160,160)}
 }
 const km={ArrowLeft:[-1,0],KeyA:[-1,0],ArrowRight:[1,0],KeyD:[1,0],ArrowUp:[0,-1],KeyW:[0,-1],ArrowDown:[0,1],KeyS:[0,1]};
 const on=()=>$("#snk").classList.contains("on");
 addEventListener("keydown",e=>{if(!on())return;
+ if(menu){if((e.code==="Space"||e.code==="Enter")&&document.activeElement.tagName!=="BUTTON"){e.preventDefault();startSn(SP)}return}
  if((e.code==="Space"||e.code==="Enter")&&over){e.preventDefault();init();return}
  if(km[e.code]){e.preventDefault();if(document.activeElement&&document.activeElement.tagName==="BUTTON")document.activeElement.blur();dir(...km[e.code])}});
 addEventListener("keyup",e=>{if(on()&&(km[e.code]||e.code==="Space"||e.code==="Enter"))e.preventDefault()});
@@ -743,7 +844,11 @@ cv.addEventListener("touchend",e=>{const t=e.changedTouches[0],dx=t.clientX-sx,d
  if(Math.abs(dx)<12&&Math.abs(dy)<12){if(over)init();return}
  Math.abs(dx)>Math.abs(dy)?dir(dx>0?1:-1,0):dir(0,dy>0?1:-1)});
 cv.addEventListener("click",()=>{cv.focus({preventScroll:true});if(over)init()});
-setInterval(tick,190);init();
+function setSp(v){SP=v;clearInterval(iv);iv=setInterval(tick,SP);let nm="";document.querySelectorAll("#snm [data-sp]").forEach(b=>{const m=+b.dataset.sp===v;b.classList.toggle("sel",m);if(m)nm=b.textContent});$("#snchg").textContent="Speed: "+nm+" – change"}
+function startSn(v){setSp(v);store.set("snsp",v);menu=0;$("#snm").hidden=true;init();cv.focus({preventScroll:true})}
+document.querySelectorAll("#snm [data-sp]").forEach(b=>b.onclick=()=>startSn(+b.dataset.sp));
+$("#snchg").onclick=()=>{menu=1;$("#snm").hidden=false};
+setSp(+store.get("snsp")||170);init();(function fr(){requestAnimationFrame(fr);if(on())draw()})();
 })();
 </script>
 </body>
