@@ -203,7 +203,7 @@ nav button[aria-selected=true]{background:var(--acc);color:#fff;text-shadow:1px 
 .note{background:var(--ink);color:#fff;border:3px solid #ffd23f;border-radius:16px;padding:8px 16px;text-align:center;animation:notein .5s cubic-bezier(.2,1.6,.4,1)}
 @keyframes notein{from{transform:translateY(-30px) scale(.8);opacity:0}}
 .goalb{position:relative}.goalb.ready::after{content:"";position:absolute;top:-8px;right:-8px;width:16px;height:16px;border-radius:50%;background:var(--red);border:3px solid var(--ink);animation:ping .8s ease-in-out infinite alternate}
-.chg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}@media(max-width:560px){.chg{grid-template-columns:1fr}}
+.chg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}@media(max-width:560px){.chg{grid-template-columns:1fr}}
 .chc{border:3px solid var(--ink);border-radius:14px;background:#fff;padding:8px;text-align:center;box-shadow:3px 3px 0 var(--ink)}
 .chi svg{width:70px;height:70px}.chc small{display:block;text-align:left;font-size:.75rem;margin:6px 0;min-height:7em}
 #chres{min-height:96px;text-align:center;margin:8px 0}.chr{animation:in .45s both}.pill.boost{background:#ffd23f}
@@ -348,7 +348,7 @@ body[data-ev=halloween] :is(#plat,#snk,#mem,#rx) h2{color:#ffb454;text-shadow:3p
 </div></div>
 <div class="mo" id="chestm" aria-hidden="true"><div class="card mb" role="dialog" aria-label="Chests">
 <div class="mh"><h2><span class="ic" data-i="chest"></span> Chests</h2><button class="btn mx" data-x aria-label="Close"><span class="ic" data-i="x"></span></button></div>
-<p class="sub" style="margin:0">Chests are free rewards, you cannot buy them. Get them from daily quests, achievements, 3-star levels, lucky chests that pop up in the Clicker, day 7 of the daily gift and a free chest every 3 hours.</p>
+<p class="sub" style="margin:0">Chests are free rewards, you cannot buy them. Get them from daily quests, achievements, every 3 cleared levels and every 12 stars in Cookie Run, lucky chests that pop up in the Clicker, day 7 of the daily gift and a free chest every 3 hours. Diamond chests are the rarest: finish a whole event, reach every 5th rebirth or collect every 36 stars.</p>
 <div style="margin-top:6px"><span class="pill" id="chtimer"></span></div>
 <div class="chg" id="chgrid"></div><div id="chres"></div>
 </div></div>
@@ -446,7 +446,7 @@ const fmtd=n=>n<10?(Math.round(n*10)/10).toString():fmt(n);
 const fmt=n=>{n=Math.floor(n);if(!isFinite(n))return "∞";if(n<1e6)return n.toLocaleString("en-US");
  const e=Math.min(Math.floor(Math.log10(n)/3),SUF.length-1);
  return (Math.floor(n/Math.pow(1000,e)*100)/100).toFixed(2)+SUF[e]};
-const rbGain=()=>Math.floor(Math.sqrt(S.run/rbCost()));
+const rbGain=()=>S.run>=rbCost()?1:0;
 function add(n){S.c+=n;S.run+=n;S.all+=n}
 
 function put(id,h){const e=$(id);if(e._h!==h){e._h=h;e.innerHTML=h}}
@@ -454,7 +454,7 @@ function render(){
  $("#cnt").textContent=fmt(S.c);$("#cps").textContent=fmtd(cps());$("#cpc").textContent=fmt(clickPow());
  $("#rbn").textContent=S.rebirths;$("#rbm").textContent="+"+fmt(S.rp*60)+"%";
  const g=rbGain();const r=$("#rebirth");r.disabled=S.run<rbCost();
- put("#rebirth",g>=1&&rbArm>Date.now()?`Sure? Click again: restart for +${fmt(g)} points (+${fmt(g*100)}%)`:g>=1?`${ic("sparkle")} Rebirth: +${fmt(g)} points (+${fmt(g*100)}% clicks &amp; production forever)`:`${ic("sparkle")} Rebirth at ${fmt(rbCost())} crumbs (${fmt(S.run)})`);
+ put("#rebirth",g>=1&&rbArm>Date.now()?`Sure? Click again: restart for +1 token (+60% clicks &amp; production)`:g>=1?`${ic("sparkle")} Rebirth: +1 token (+60% clicks &amp; production forever)`:`${ic("sparkle")} Rebirth at ${fmt(rbCost())} crumbs (${fmt(S.run)})`);
  put("#bld",B.map((x,i)=>`<button class="it" data-b="${i}" ${S.c<cost(i)?"disabled":""}><span>${ic(x[3])} ${x[0]} (${S.b[i]})<small>${fmtd(bEach(i))}/s each · ${fmtd(bEach(i)*S.b[i])}/s total</small></span><b>${fmt(cost(i))}</b></button>`).join(""));
  const up=(A,L,cost,d)=>A.map((x,i)=>{const l=L[i],c=cost(i,l),b=d==="g"&&l>=1;return `<button class="it${b?" done":""}" data-${d}="${i}" ${b||S.c<c?"disabled":""}><span>${x[0]}${d==="u"?` (${l})`:""}<small>${d==="u"?`+${fmtd(x[2]*rbMult())} per click each`:"All buildings x2.5 production (one-time)"}</small></span><b>${b?"Bought":fmt(c)}</b></button>`}).join("");
  put("#clk",up(CU,cuL(),upC,"u"));put("#glb",up(GU,guL(),upG,"g"));
@@ -552,12 +552,12 @@ const dleft=d=>Math.max(1,Math.ceil((d-Date.now())/864e5));
 function bf(){return S.bo&&S.bo.f>Date.now()?2:1}
 function bc(){return S.bo&&S.bo.c>Date.now()?5:1}
 const tm=ms=>{const t=Math.ceil(ms/1000),h=Math.floor(t/3600);return (h?h+":"+String(Math.floor(t%3600/60)).padStart(2,"0"):Math.floor(t/60))+":"+String(t%60).padStart(2,"0")};
-const CH={w:{n:"Wooden",col:"#d99a58",m:4,x:[["f",.15,120],["t",.03,1]]},s:{n:"Silver",col:"#b8c4d0",m:12,x:[["f",.35,180],["c",.15,60],["t",.12,1]]},g:{n:"Golden",col:"#ffd23f",m:40,x:[["f",1,300],["c",.5,120],["t",.6,2]]}};
+const CH={w:{n:"Wooden",col:"#d99a58",m:4,x:[["f",.15,120],["t",.03,1]]},s:{n:"Silver",col:"#b8c4d0",m:12,x:[["f",.35,180],["c",.15,60],["t",.12,1]]},g:{n:"Golden",col:"#ffd23f",m:40,x:[["f",1,300],["c",.5,120],["t",.6,2]]},d:{n:"Diamond",col:"#7fe8ff",m:120,x:[["f",1,600],["c",1,300],["t",1,2]]}};
 const chestSVG=c=>`<svg viewBox="0 0 32 32" fill="${c}" stroke="#2b1b12" stroke-width="2" stroke-linejoin="round"><rect x="4" y="14" width="24" height="13" rx="2"/><path d="M4 14a12 9 0 0 1 24 0z"/><rect x="14" y="16" width="4" height="7" fill="#ffd23f"/></svg>`;
 function giveChest(k,why){S.ch=S.ch||{w:0,s:0,g:0};S.ch[k]=Math.min(99,(S.ch[k]||0)+1);note("You got a "+CH[k].n+" chest!"+(why?" ("+why+")":""))}
 const exTxt=e=>Math.round(e[1]*100)+"%: "+(e[0]==="f"?"Frenzy, production x2 for "+e[2]/60+" min":e[0]==="c"?"Click Storm, clicks x5 for "+e[2]/60+" min":e[2]+" Rebirth Token"+(e[2]>1?"s":""));
 function chestUI(){const n=Date.now();$("#chtimer").textContent="Next free chest in "+tm(Math.max(0,(S.chT||n)-n));
- put("#chgrid",["w","s","g"].map(k=>{const c=CH[k],q=(S.ch&&S.ch[k])||0;return `<div class="chc"><div class="chi">${chestSVG(c.col)}</div><b>${c.n}</b><div class="sub">x${q}</div><small>Always ${fmt(rw(c.m))} crumbs${c.x.map(e=>"<br>"+exTxt(e)).join("")}</small><button class="btn" data-o="${k}" ${q?"":"disabled"}>Open</button></div>`}).join(""))}
+ put("#chgrid",["w","s","g","d"].map(k=>{const c=CH[k],q=(S.ch&&S.ch[k])||0;return `<div class="chc"><div class="chi">${chestSVG(c.col)}</div><b>${c.n}</b><div class="sub">x${q}</div><small>Always ${fmt(rw(c.m))} crumbs${c.x.map(e=>"<br>"+exTxt(e)).join("")}</small><button class="btn" data-o="${k}" ${q?"":"disabled"}>Open</button></div>`}).join(""))}
 function openChest(k){if(!(S.ch&&S.ch[k]>0))return;S.ch[k]--;const c=CH[k],r=rw(c.m),L=["+"+fmt(r)+" crumbs"];S.c+=r;ST().chO=(ST().chO||0)+1;S.bo=S.bo||{f:0,c:0};
  for(const e of c.x)if(Math.random()<e[1]){const n=Date.now();if(e[0]==="f"){S.bo.f=Math.max(n,S.bo.f)+e[2]*1e3;L.push("Frenzy: production x2 for "+e[2]/60+" min")}else if(e[0]==="c"){S.bo.c=Math.max(n,S.bo.c)+e[2]*1e3;L.push("Click Storm: clicks x5 for "+e[2]/60+" min")}else{S.rt=(S.rt||0)+e[2];L.push("+"+e[2]+" Rebirth Token"+(e[2]>1?"s":""))}}
  const R=$("#chres");R.innerHTML=`<div class="chi" style="display:inline-block">${chestSVG(c.col)}</div>`;R.firstChild.animate([{transform:"rotate(-12deg)"},{transform:"rotate(12deg)"},{transform:"rotate(-10deg)"},{transform:"rotate(10deg)"},{transform:"scale(1.25)"}],{duration:650});
@@ -573,14 +573,14 @@ function chk(){dayRoll();wkRoll();const ae=evRoll();decor();evnotes();let ch=0;i
  for(const a of AC)if(!(S.ac||[]).includes(a[0])&&a[3]()){S.ac=(S.ac||[]).concat(a[0]);const r=rw(a[4]);S.c+=r;note("Achievement unlocked: "+a[1]+" · +"+fmt(r)+" crumbs");giveChest("s");ch=1}
  for(const q of S.q.l)if(!q.x&&(ST()[q.k]||0)-q.b>=q.n){q.x=1;const r=rw(q.m);S.c+=r;note("Daily quest done! +"+fmt(r)+" crumbs");giveChest("w");ch=1}
  for(const q of S.wq.l)if(!q.x&&(ST()[q.k]||0)-q.b>=q.n){q.x=1;const r=rw(q.m);S.c+=r;giveChest(q.c);note("Weekly goal done! +"+fmt(r)+" crumbs");ch=1;if(S.wq.l.every(z=>z.x))giveChest("g","all weekly goals!")}
- if(ae)EVM.forEach((m,i)=>{if(!S.ev.d.includes(i)&&(ST()[m[0]]||0)-(S.ev.base[m[0]]||0)>=m[1]){S.ev.d.push(i);const r=rw(m[4]);S.c+=r;giveChest(m[3]);note(ae.n+": challenge done! +"+fmt(r)+" crumbs");ch=1;if(S.ev.d.length===EVM.length&&!skOwn(ae.skin)){S.skO=(S.skO||[]).concat(ae.skin);note("Event skin unlocked: "+SKINS.find(k=>k.id===ae.skin).n+"!")}}});
+ if(ae)EVM.forEach((m,i)=>{if(!S.ev.d.includes(i)&&(ST()[m[0]]||0)-(S.ev.base[m[0]]||0)>=m[1]){S.ev.d.push(i);const r=rw(m[4]);S.c+=r;giveChest(m[3]);note(ae.n+": challenge done! +"+fmt(r)+" crumbs");ch=1;if(S.ev.d.length===EVM.length){giveChest("d","event complete!");if(!skOwn(ae.skin)){S.skO=(S.skO||[]).concat(ae.skin);note("Event skin unlocked: "+SKINS.find(k=>k.id===ae.skin).n+"!")}}}});
  if(!S.chT)S.chT=Date.now()+6e5;if(Date.now()>=S.chT){S.chT=Date.now()+108e5;giveChest("w","free chest");ch=1}
- if(ch)save();$("#goalb").classList.toggle("ready",giftReady());const tc=S.ch?S.ch.w+S.ch.s+S.ch.g:0;$("#chcnt").textContent=tc;$("#chcnt").classList.toggle("on",tc>0)}
+ if(ch)save();$("#goalb").classList.toggle("ready",giftReady());const tc=S.ch?S.ch.w+S.ch.s+S.ch.g+(S.ch.d||0):0;$("#chcnt").textContent=tc;$("#chcnt").classList.toggle("on",tc>0)}
 function goalUI(){dayRoll();const g=S.dg||{last:"",streak:0},rd=giftReady(),idx=rd?((g.last===yest()?g.streak:0)%7):((g.streak-1)%7);
  put("#gdays",`<div class="days">${GM.map((m,i)=>`<div class="day${rd&&i===idx?" cur":""}${(rd?i<idx:i<=idx)?" past":""}">Day ${i+1}<br><b>${fmt(rw(m))}</b></div>`).join("")}</div><button class="btn" id="gclaim" ${rd?"":"disabled"}>${rd?"Claim daily gift":"Come back tomorrow!"}</button>`);
  put("#gq",S.q.l.map(q=>{const v=Math.max(0,Math.min(q.n,(ST()[q.k]||0)-q.b));return `<div class="gq${q.x?" done":""}"><b>${q.x?"Done":"+"+fmt(rw(q.m))}</b>${q.t.replace("{n}",q.n)}<div class="bar" style="margin:6px 0 0"><i style="width:${v/q.n*100}%"></i></div></div>`}).join(""));
  const have=S.ac||[];wkRoll();const ae=evRoll(),nx=nextEv(),bar=(v,n)=>`<div class="bar" style="margin:6px 0 0"><i style="width:${v/n*100}%"></i></div>`;
- put("#gev",ae?`<div class="gq evb"><b>${dleft(ae.end)} day(s) left</b>${ae.n}<br><small>Finish all ${EVM.length} challenges to unlock the exclusive ${SKINS.find(k=>k.id===ae.skin).n} skin!</small></div>`+EVM.map((m,i)=>{const v=Math.max(0,Math.min(m[1],(ST()[m[0]]||0)-(S.ev.base[m[0]]||0))),dn=S.ev.d.includes(i);return `<div class="gq${dn?" done":""}"><b>${dn?"Done":CH[m[3]].n+" chest"}</b>${m[2]}${bar(v,m[1])}</div>`}).join(""):`<div class="gq">No event right now. Next: <b style="float:none">${nx.n}</b> in ${dleft(nx.s)} day(s) – with an exclusive skin!</div>`);
+ put("#gev",ae?`<div class="gq evb"><b>${dleft(ae.end)} day(s) left</b>${ae.n}<br><small>Finish all ${EVM.length} challenges to unlock the exclusive ${SKINS.find(k=>k.id===ae.skin).n} skin and a Diamond chest!</small></div>`+EVM.map((m,i)=>{const v=Math.max(0,Math.min(m[1],(ST()[m[0]]||0)-(S.ev.base[m[0]]||0))),dn=S.ev.d.includes(i);return `<div class="gq${dn?" done":""}"><b>${dn?"Done":CH[m[3]].n+" chest"}</b>${m[2]}${bar(v,m[1])}</div>`}).join(""):`<div class="gq">No event right now. Next: <b style="float:none">${nx.n}</b> in ${dleft(nx.s)} day(s) – with an exclusive skin!</div>`);
  $("#gwkd").textContent="("+(7-(new Date().getDay()+6)%7)+" day(s) left)";
  put("#gwk",S.wq.l.map(q=>{const v=Math.max(0,Math.min(q.n,(ST()[q.k]||0)-q.b));return `<div class="gq${q.x?" done":""}"><b>${q.x?"Done":"+"+fmt(rw(q.m))+" & "+CH[q.c].n+" chest"}</b>${q.t.replace("{n}",fmt(q.n))}${bar(v,q.n)}</div>`}).join("")+`<small>Finish all 3 weekly goals for a bonus Golden chest!</small>`);
  $("#gac").textContent="("+have.length+"/"+AC.length+")";
@@ -602,7 +602,7 @@ addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".m
 $("#perks").onclick=e=>{const b=e.target.closest("[data-p]");if(!b)return;const i=+b.dataset.p;if(pk(i)>=PK[i][3]||(S.rt||0)<pkc(i))return;S.rt-=pkc(i);S.pk=S.pk||[0,0,0,0,0];S.pk[i]=pk(i)+1;save();render()};
 $("#rebirth").onclick=()=>{const g=rbGain();if(g<1)return;
  if(Date.now()>rbArm){rbArm=Date.now()+4000;render();return}
- rbArm=0;S.rp+=g;S.rt=(S.rt||0)+1;S.rebirths++;S.c=pk(0)?500*Math.pow(4,pk(0)-1):0;flash();S.run=0;S.b=B.map(()=>0);S.cu=0;S.gu=0;S.cl=CU.map(()=>0);S.gl=GU.map(()=>0);save(1);render()};
+ rbArm=0;S.rp+=g;S.rt=(S.rt||0)+1;S.rebirths++;if(S.rebirths%5===0)giveChest("d","rebirth "+S.rebirths);S.c=pk(0)?500*Math.pow(4,pk(0)-1):0;flash();S.run=0;S.b=B.map(()=>0);S.cu=0;S.gu=0;S.cl=CU.map(()=>0);S.gl=GU.map(()=>0);save(1);render()};
 $("#reset").onclick=()=>{
  if(Date.now()>rsArm){rsArm=Date.now()+4000;$("#reset").textContent="Click again to delete";setTimeout(()=>$("#reset").textContent="Delete save",4000);return}
  rsArm=0;S={c:0,run:0,all:0,b:B.map(()=>0),cu:0,gu:0,rp:0,rebirths:0,mc:0,mk:0,rt:0,pk:[0,0,0,0,0]};$("#reset").textContent="Delete save";save(1);render()};
@@ -952,8 +952,9 @@ let P={u:1,s:{},c:{}};try{Object.assign(P,JSON.parse(store.get("pfp")||"{}"))}ca
 const inG=()=>$("#plat").classList.contains("on")&&!$("#pgame").hidden;
 const sum=()=>Object.values(P.s).reduce((a,b)=>a+b,0);
 function start(n){li=n;base=0;deaths=0;load(n);st="play";show("game")}
-function finish(){const s=1+(lc>=Math.ceil(coins.length*.7)?1:0)+(deaths===0?1:0);lastS=s;ST().lvl++;if(s===3)giveChest("s","3 stars!");else if(ST().lvl%3===0)giveChest("w","3 levels cleared");lastR=Math.floor(Math.max(100,cps()*40+clickPow()*30)*(.4*Math.min(1,lc/Math.max(1,coins.length))+.2*s)*(1+skf("coinB"))*(EVID?1.25:1));S.c+=lastR;save();
+function finish(){const s=1+(lc>=Math.ceil(coins.length*.7)?1:0)+(deaths===0?1:0);lastS=s;ST().lvl++;if(ST().lvl%3===0)giveChest("w","3 levels cleared");lastR=Math.floor(Math.max(100,cps()*40+clickPow()*30)*(.4*Math.min(1,lc/Math.max(1,coins.length))+.2*s)*(1+skf("coinB"))*(EVID?1.25:1));S.c+=lastR;save();
  P.s[li]=Math.max(P.s[li]||0,s);P.c[li]=Math.max(P.c[li]||0,lc);
+ {const t=sum();while(t>=12*((S.stc||0)+1)){S.stc=(S.stc||0)+1;giveChest("s","12 stars!");if(S.stc%3===0)giveChest("d","36 stars!")}}
  P.u=Math.max(P.u,Math.min(li+2,LV.length));store.set("pfp",JSON.stringify(P))}
 function show(v){["menu","sel","game"].forEach(x=>$("#p"+x).hidden=x!==v);
  if(v==="menu")buildMenu();if(v==="sel")buildSel();if(v==="game")cv.focus({preventScroll:true});
