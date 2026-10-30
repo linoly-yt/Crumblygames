@@ -229,10 +229,10 @@ body[data-ev=halloween]{background-color:#f6dcc0}body[data-ev=winter]{background
 body[data-ev=halloween] .mc .fa{background:#8e5be8}body[data-ev=winter] .mc .fa{background:#6fb6ff}body[data-ev=spring] .mc .fa{background:#ff9fc2}body[data-ev=summer] .mc .fa{background:#4fd1c5}
 .sp.sw{animation:spsw 3.1s ease-in-out infinite alternate}@keyframes spsw{from{transform:rotate(-17deg)}to{transform:rotate(17deg)}}
 .cw.bl,.cw.br{width:clamp(100px,17vw,200px)}footer{position:relative}
-body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg){background:#2a1750;color:#ffe9c4}
-body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg) .sub,body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg) p{color:#d9c8ff}
-body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg) .btn,body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg) .evn,body[data-ev=halloween] #plat .lv{color:#2b1b12}
-body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg) h2{color:#ffb454;text-shadow:3px 3px 0 #1a0e33}
+body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts){background:#2a1750;color:#ffe9c4}
+body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts) .sub,body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts) p{color:#d9c8ff}
+body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts) .btn,body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts) .evn,body[data-ev=halloween] #plat .lv{color:#2b1b12}
+body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts) h2{color:#ffb454;text-shadow:3px 3px 0 #1a0e33}
 #mchain{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin:8px 0}
 #mchain i{width:32px;height:32px;border:2px solid var(--ink);border-radius:10px;background:#e8d9b8;display:grid;place-items:center;opacity:.3;transition:opacity .3s,transform .3s}
 #mchain i.on{opacity:1;background:var(--c)}#mchain svg{width:80%;height:80%}
@@ -248,6 +248,23 @@ body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg) h2{color:#ffb454;text-shad
 #mov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(255,246,220,.94);border-radius:19px;z-index:5;text-align:center;animation:in .35s both;color:var(--ink)}
 #mov[hidden]{display:none}#mov h3{margin:0;font-size:1.5rem}
 body[data-ev=halloween] #mbd{background:#4a2a7a}
+body[data-ev=halloween] :is(#plat,#snk,#mem,#rx,#mrg,#bts) .pill{color:#2b1b12}
+.pill{color:var(--ink)}
+.bbs{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}.bbs>div{flex:1 1 280px;max-width:380px}.bbs h3{margin:6px 0;text-align:center}
+.bgrid{display:grid;grid-template:repeat(10,1fr)/repeat(10,1fr);aspect-ratio:1;border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:3px 3px 0 var(--ink);background:#a5d8ff;user-select:none;-webkit-user-select:none}
+.wc{position:relative;border:1px solid rgba(43,27,18,.16);background:linear-gradient(135deg,#c4e8ff,#9fd3f7);cursor:pointer}
+#bfo .wc:not(.m):not(.h):hover{outline:3px solid #ffd23f;outline-offset:-3px;z-index:1}
+.wc.sh{background:#8d9bb0;border:2px solid var(--ink);z-index:1}
+.wc.sh.hz.f{border-radius:16px 3px 3px 16px}.wc.sh.hz.l{border-radius:3px 16px 16px 3px}.wc.sh.vz.f{border-radius:16px 16px 3px 3px}.wc.sh.vz.l{border-radius:3px 3px 16px 16px}
+.wc.sh::before{content:"";position:absolute;inset:32%;border-radius:50%;background:#e8dcc0;border:2px solid var(--ink)}
+.wc.pv.ok{background:#8cc152}.wc.pv.bad{background:#e85d75}
+.wc.m::after{content:"";position:absolute;inset:26%;border:3px solid #fff;border-radius:50%;animation:bm .55s ease-out}
+.wc.h::after{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,#ffd23f 0 28%,#ff8a1f 29% 58%,#e8433a 59% 72%,transparent 73%);animation:bh .4s cubic-bezier(.2,1.6,.4,1);z-index:2}
+.wc.k{background:#4b3b4b!important;border-color:var(--ink)}.wc.k::before{display:none}
+@keyframes bm{from{scale:0;opacity:1}60%{opacity:1}}@keyframes bh{from{scale:0}}
+#bfl .btn.done{background:#d7f0b8}#bfl .btn.on{background:var(--acc);color:#fff;text-shadow:1px 1px 0 var(--ink)}#bdiff .btn.on{background:var(--acc);color:#fff;text-shadow:1px 1px 0 var(--ink)}
+#bres{background:#fff3b8;border:3px solid var(--ink);border-radius:16px;padding:10px;margin:8px auto;max-width:420px;text-align:center;box-shadow:3px 3px 0 var(--ink);color:var(--ink);animation:in .35s both}#bres[hidden]{display:none}#bres h3{margin:0 0 4px}
+body[data-ev=halloween] .bgrid{background:#4a2a7a}body[data-ev=halloween] #bts .wc:not(.sh):not(.k):not(.pv){background:linear-gradient(135deg,#6a45b8,#4a2a7a)}
 </style>
 </head>
 <body>
@@ -263,6 +280,7 @@ body[data-ev=halloween] #mbd{background:#4a2a7a}
 <button role="tab" aria-selected="false" data-t="mem"><span class="ic" data-i="card"></span> Memory</button>
 <button role="tab" aria-selected="false" data-t="rx"><span class="ic" data-i="bolt"></span> Reaction Test</button>
 <button role="tab" aria-selected="false" data-t="mrg"><span class="ic" data-i="cookie"></span> Cookie Merge</button>
+<button role="tab" aria-selected="false" data-t="bts"><span class="ic" data-i="ship"></span> Battleship</button>
 </nav>
 <main>
 <div class="ad" id="ad1"></div>
@@ -338,6 +356,16 @@ body[data-ev=halloween] #mbd{background:#4a2a7a}
 <div class="mtop"><span class="pill">Score <b id="msc">0</b></span><span class="pill">Best <b id="mbs">0</b></span><button class="btn" id="mun">Undo (3)</button><button class="btn" id="mnw">New game</button></div>
 <div id="mbd"><div id="mslots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div id="mtl"></div><div id="mov" hidden></div></div>
 <p class="sub" style="text-align:center">When a game ends you earn crumbs for your score, and big scores can drop chests!</p>
+</section>
+<section id="bts" class="card">
+<h2>Battleship</h2>
+<p class="sub" id="bhelp"></p>
+<div class="mtop" id="bdiff"><button class="btn" data-l="0">Easy</button><button class="btn" data-l="1">Normal</button><button class="btn" data-l="2">Hard</button></div>
+<div id="bfl" class="mtop"></div>
+<div class="mtop" id="bctl"><button class="btn" id="brot">Rotate (R)</button><button class="btn" id="brnd">Random</button><button class="btn" id="brst">Reset</button><button class="btn" id="bgo" disabled>Start battle</button></div>
+<div class="mtop"><span class="pill" id="bmsg"></span></div>
+<div id="bres" hidden></div>
+<div class="bbs"><div><h3 id="bmh">Your fleet</h3><div class="bgrid" id="bme"></div></div><div id="bfw" hidden><h3 id="bfh">Enemy waters</h3><div class="bgrid" id="bfo"></div></div></div>
 </section>
 </main>
 <footer>
@@ -420,7 +448,8 @@ shop:'<path d="M5 14V28H27V14" fill="#fff6dc"/><path d="M3 6H29L28 13Q25.5 17.5 
 rshop:'<path d="M3 13V27H21V13" fill="#fff6dc"/><path d="M1.500 5H23.500L22.500 12Q20.500 16 18 12Q16 16 13.500 12Q11.500 16 9 12Q7 16 3 12Z" fill="#ff5a4d"/><path d="M7 5L6 12M12.500 5V12M18 5L19 12" stroke="#fff" stroke-width="2" fill="none"/><rect x="9" y="18" width="6" height="9" fill="#8fd6f5"/><circle cx="23.500" cy="23.500" r="8" fill="#8e5be8"/><path d="M19.500 22.500A4.200 4.200 0 0 1 27 21.500" fill="none" stroke="#fff" stroke-width="1.900"/><path d="M28.500 19.500L28 24L24 22Z" fill="#fff" stroke="none"/><path d="M27.500 24.500A4.200 4.200 0 0 1 20 25.500" fill="none" stroke="#fff" stroke-width="1.900"/><path d="M18.500 27.500L19 23L23 25Z" fill="#fff" stroke="none"/>',
 x:'<path d="M8 8L24 24M24 8L8 24" fill="none" stroke-width="5"/>',
 skin:'<path d="M16 4C9 4 4 9 4 15s5 11 10 11c2 0 3-1 3-3 0-2 1-3 3-3h3c3 0 5-2 5-5 0-6-5-11-12-11z" fill="#fff6dc"/><circle cx="10" cy="14" r="2" fill="#e85d75"/><circle cx="15" cy="9" r="2" fill="#ffd23f"/><circle cx="21" cy="11" r="2" fill="#5fd068"/><circle cx="11" cy="20" r="2" fill="#5aa9e6"/>',
-chest:'<rect x="4" y="14" width="24" height="13" rx="2" fill="#d99a58"/><path d="M4 14a12 9 0 0 1 24 0z" fill="#b8742f"/><rect x="14" y="16" width="4" height="7" fill="#ffd23f"/>'
+chest:'<rect x="4" y="14" width="24" height="13" rx="2" fill="#d99a58"/><path d="M4 14a12 9 0 0 1 24 0z" fill="#b8742f"/><rect x="14" y="16" width="4" height="7" fill="#ffd23f"/>',
+ship:'<path d="M3 21h26l-5 7H8z" fill="#7a8aa0"/><rect x="15" y="8" width="3" height="13" fill="#e8dcc0"/><path d="M18 8l8 9h-8z" fill="#ff5a4d"/>'
 };
 const ic=n=>`<span class="ic">${SV(IC[n])}</span>`;
 document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=SV(IC[e.dataset.i]));
@@ -535,10 +564,10 @@ const AC=[["c1","First Bite","Click the cookie 100 times",()=>ST().clk>=100,1],[
 ["g1","Star Catcher","Catch 10 golden stars",()=>ST().gs>=10,4],["p1","Runner","Finish 3 Cookie Run levels",()=>ST().lvl>=3,3],["p2","Marathon","Finish 12 levels",()=>ST().lvl>=12,8],["p3","Coin Hoarder","Collect 200 coins",()=>ST().coin>=200,4],
 ["s1","Snake Charmer","Score 10 in Snake",()=>ST().snk>=10,2],["s2","Anaconda","Score 30 in Snake",()=>ST().snk>=30,6],["m1","Sharp Mind","Win Memory 3 times",()=>ST().mem>=3,2],
 ["x1","Quick Draw","React in under 300 ms",()=>ST().rx>0&&ST().rx<300,3],["x2","Superhuman","React in under 220 ms",()=>ST().rx>0&&ST().rx<220,8],
-["k1","Fashionista","Own 5 skins",()=>(S.skO||[]).length>=4,4],["k2","Collector","Own 10 skins",()=>(S.skO||[]).length>=9,10],["d1","Regular","Claim 3 daily gifts",()=>ST().gift>=3,3],["d2","Dedicated","Claim 7 daily gifts",()=>ST().gift>=7,8],["h1","Treasure Hunter","Open 10 chests",()=>ST().chO>=10,3],["h2","Vault Master","Open 40 chests",()=>ST().chO>=40,10],["m1","Pastry Chef","Bake a Pie in Cookie Merge",()=>ST().mrgL>=7,4],["m2","Royal Baker","Bake the Royal Cookie",()=>ST().mrgL>=11,12],["m3","Merge Maniac","Finish 10 Cookie Merge games",()=>ST().mrg>=10,3]];
-const QP=[["clk","Click the cookie {n} times",[200,500,1000]],["coin","Collect {n} coins in Cookie Run",[15,30,60]],["lvl","Finish {n} Cookie Run level(s)",[1,2,3]],["gs","Catch {n} golden star(s)",[1,2,3]],["apl","Eat {n} cookies in Snake",[8,15,25]],["mem","Win Memory {n} time(s)",[1,2,3]],["mrg","Play {n} Cookie Merge game(s)",[1,2,3]]];
+["k1","Fashionista","Own 5 skins",()=>(S.skO||[]).length>=4,4],["k2","Collector","Own 10 skins",()=>(S.skO||[]).length>=9,10],["d1","Regular","Claim 3 daily gifts",()=>ST().gift>=3,3],["d2","Dedicated","Claim 7 daily gifts",()=>ST().gift>=7,8],["h1","Treasure Hunter","Open 10 chests",()=>ST().chO>=10,3],["h2","Vault Master","Open 40 chests",()=>ST().chO>=40,10],["m1","Pastry Chef","Bake a Pie in Cookie Merge",()=>ST().mrgL>=7,4],["m2","Royal Baker","Bake the Royal Cookie",()=>ST().mrgL>=11,12],["m3","Merge Maniac","Finish 10 Cookie Merge games",()=>ST().mrg>=10,3],["w1","Admiral","Win a Battleship game",()=>ST().btw>=1,3],["w2","Sea Wolf","Win Battleship on Hard",()=>ST().bth>=1,8],["w3","Sharpshooter","Win Battleship in 50 shots or fewer",()=>ST().btq>=1,6]];
+const QP=[["clk","Click the cookie {n} times",[200,500,1000]],["coin","Collect {n} coins in Cookie Run",[15,30,60]],["lvl","Finish {n} Cookie Run level(s)",[1,2,3]],["gs","Catch {n} golden star(s)",[1,2,3]],["apl","Eat {n} cookies in Snake",[8,15,25]],["mem","Win Memory {n} time(s)",[1,2,3]],["mrg","Play {n} Cookie Merge game(s)",[1,2,3]],["btw","Win {n} Battleship game(s)",[1,2,3]]];
 const monday=()=>{const d=new Date(),k=(d.getDay()+6)%7;return new Date(d.getFullYear(),d.getMonth(),d.getDate()-k)};
-const WP=[["clk","Click the cookie {n} times",[3000,6000,10000]],["coin","Collect {n} coins in Cookie Run",[150,300,500]],["lvl","Finish {n} Cookie Run levels",[5,8,12]],["gs","Catch {n} golden stars",[5,8,12]],["apl","Eat {n} cookies in Snake",[60,120,200]],["mem","Win Memory {n} times",[5,8,12]],["chO","Open {n} chests",[3,5,8]],["mrg","Finish {n} Cookie Merge games",[3,6,10]]];
+const WP=[["clk","Click the cookie {n} times",[3000,6000,10000]],["coin","Collect {n} coins in Cookie Run",[150,300,500]],["lvl","Finish {n} Cookie Run levels",[5,8,12]],["gs","Catch {n} golden stars",[5,8,12]],["apl","Eat {n} cookies in Snake",[60,120,200]],["mem","Win Memory {n} times",[5,8,12]],["chO","Open {n} chests",[3,5,8]],["mrg","Finish {n} Cookie Merge games",[3,6,10]],["btw","Win {n} Battleship games",[2,4,6]]];
 function wkRoll(){const k=dstr(monday());if(S.wq&&S.wq.w===k)return;let h=0;for(const ch of k)h=(h*31+ch.charCodeAt(0))>>>0;const rnd=()=>(h=(h*1664525+1013904223)>>>0)/4294967296;
  S.wq={w:k,l:WP.map((_,i)=>i).sort(()=>rnd()-.5).slice(0,3).map((qi,j)=>({k:WP[qi][0],t:WP[qi][1],n:WP[qi][2][j],b:ST()[WP[qi][0]]||0,m:[10,18,30][j],c:["w","s","s"][j],x:0}))}}
 let EVID="";const EVS={halloween:"pumpkin",winter:"snowflake",spring:"flower",summer:"sunbeam"},EVTI={halloween:"rgba(120,60,170,.12)",winter:"rgba(150,210,255,.16)",spring:"rgba(255,170,200,.10)",summer:"rgba(255,210,60,.12)"};
@@ -563,7 +592,7 @@ const SPI='<svg viewBox="0 0 32 32"><g stroke="#2b1b12" stroke-width="2" stroke-
 const FLW='<svg viewBox="0 0 120 90"><path d="M20 90V50M55 90V35M90 90V55" stroke="#4f9a3a" stroke-width="4"/><g stroke="#2b1b12" stroke-width="2"><circle cx="20" cy="46" r="9" fill="#ff9fc2"/><circle cx="20" cy="46" r="3.5" fill="#ffd23f"/><circle cx="55" cy="30" r="11" fill="#ffd23f"/><circle cx="55" cy="30" r="4" fill="#e8833a"/><circle cx="90" cy="50" r="9" fill="#b78bff"/><circle cx="90" cy="50" r="3.5" fill="#ffd23f"/></g></svg>';
 const SNW='<svg viewBox="0 0 160 70"><path d="M0 70V40Q20 20 45 35Q70 10 100 32Q130 18 160 45V70z" fill="#fff" stroke="#9cc8ee" stroke-width="3"/></svg>';
 const SUN='<svg viewBox="0 0 100 100"><g stroke="#ffb400" stroke-width="5" stroke-linecap="round" style="transform-origin:50px 50px;animation:dspin 40s linear infinite"><path d="M50 4v14M50 82v14M4 50h14M82 50h14M18 18l10 10M72 72l10 10M18 82l10-10M72 28l10-10"/></g><circle cx="50" cy="50" r="22" fill="#ffd23f" stroke="#2b1b12" stroke-width="3"/></svg>';
-function evnotes(){const T={plat:"every 3rd coin is a {i} worth 2 coins, level rewards +25%",snk:"{i} bonus cookies give +3 points",mem:"the {i} pair counts double",rx:"react under 300 ms to collect a {i}",mrg:"bake a Cupcake or bigger to collect a {i}"},ae=activeEv();for(const k in T){const sec=$("#"+k);let q=sec.querySelector(":scope>.evn");if(!q){q=document.createElement("p");q.className="evn";sec.prepend(q)}q.hidden=!ae;const t=ae?ae.n+": "+T[k].replace("{i}",EVS[ae.id])+" – counts for the event!":"";if(q.textContent!==t)q.textContent=t}}
+function evnotes(){const T={plat:"every 3rd coin is a {i} worth 2 coins, level rewards +25%",snk:"{i} bonus cookies give +3 points",mem:"the {i} pair counts double",rx:"react under 300 ms to collect a {i}",mrg:"bake a Cupcake or bigger to collect a {i}",bts:"sink an enemy ship to collect a {i}"},ae=activeEv();for(const k in T){const sec=$("#"+k);let q=sec.querySelector(":scope>.evn");if(!q){q=document.createElement("p");q.className="evn";sec.prepend(q)}q.hidden=!ae;const t=ae?ae.n+": "+T[k].replace("{i}",EVS[ae.id])+" – counts for the event!":"";if(q.textContent!==t)q.textContent=t}}
 function decor(){const id=document.body.dataset.ev||"";if(decor.id===id)return;decor.id=id;const d=$("#decor");d.innerHTML="";$("#bunt").innerHTML="";if(!id)return;
  d.innerHTML=id==="halloween"?`<div class="cw tl">${webSVG()}</div><div class="cw tr">${webSVG()}</div><div class="cw bl">${webSVG()}</div><div class="cw br">${webSVG()}</div><div class="sp" style="left:7vw;--th:70px;animation-duration:3.9s;animation-delay:-.9s"><i></i>${SPI}</div><div class="sp sw" style="right:9vw;--th:58px"><i></i>${SPI}</div><div class="sp sit" style="left:3.4vw;bottom:36px;animation-duration:2.7s">${SPI}</div><div class="sp sit" style="right:3.4vw;bottom:36px;animation-duration:3.3s;animation-delay:-1.1s">${SPI}</div>`
  :id==="winter"?`<div class="ev bl w">${SNW}</div><div class="ev br w" style="transform:scaleX(-1)">${SNW}</div>`
@@ -1088,14 +1117,14 @@ setSp(+store.get("snsp")||170);init();(function fr(){requestAnimationFrame(fr);i
 /* ===== Cookie Merge ===== */
 (function(){
 const N=4,NM=["Crumb","Cookie","Choco Cookie","Donut","Cupcake","Croissant","Pie","Cake Slice","Party Cake","Golden Cookie","Royal Cookie"];
-const CL=["#f6e3c0","#f0c27c","#d99a58","#ff9fc2","#ffb3d9","#ffd27a","#ff9a6a","#9ad9ff","#b78bff","#ffd23f","#ff6b6b"];
+const CL=["#f6e3c0","#f0c27c","#d99a58","#ff9fc2","#ffb3d9","#ffeabd","#ff9a6a","#9ad9ff","#b78bff","#ffd23f","#ff6b6b"];
 const sv=x=>`<svg viewBox="0 0 40 40"><g stroke="#2b1b12" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">${x}</g></svg>`;
 const IC=[sv('<circle cx="14" cy="22" r="5" fill="#a8683a"/><circle cx="26" cy="16" r="4" fill="#c88a52"/><circle cx="25" cy="28" r="3.5" fill="#8a5a2a"/>'),
 ()=>cookieSVG(sk()),
 sv('<circle cx="20" cy="20" r="15" fill="#8a5a3a"/><g fill="#f1dcb8"><circle cx="13" cy="15" r="3"/><circle cx="25" cy="13" r="3"/><circle cx="27" cy="24" r="3.4"/><circle cx="16" cy="27" r="3"/><circle cx="20" cy="20" r="2.4"/></g>'),
 sv('<circle cx="20" cy="20" r="15" fill="#e9b36e"/><circle cx="20" cy="19" r="12" fill="#ff8fb3"/><circle cx="20" cy="20" r="4.5" fill="#f6e3c0"/><path d="M10 14l3-2M27 11l2 3M29 22l3 1M12 27l3-1M22 29l1 3" stroke="#fff" stroke-width="2.5"/>'),
 sv('<path d="M9 22h22l-3 14H12z" fill="#7fd6f5"/><path d="M8 22c-1-7 5-8 6-11 2-5 10-5 12 0 1 3 7 4 6 11z" fill="#ffb3d9"/><circle cx="20" cy="9" r="3" fill="#ff4d6a"/>'),
-sv('<path d="M4 26c2-12 10-18 16-18s14 6 16 18c-4-3-8-3-11 1-3-4-7-4-10 0-3-4-7-4-11-1z" fill="#f2b04a"/><path d="M14 12l4 12M26 12l-4 12M20 9v15" fill="none"/>'),
+sv('<g fill="#d9892a"><ellipse cx="7" cy="27" rx="4.5" ry="3.4" transform="rotate(-70 7 27)"/><ellipse cx="33" cy="27" rx="4.5" ry="3.4" transform="rotate(70 33 27)"/><ellipse cx="12" cy="18" rx="6.5" ry="4.8" transform="rotate(-50 12 18)"/><ellipse cx="28" cy="18" rx="6.5" ry="4.8" transform="rotate(50 28 18)"/><ellipse cx="20" cy="14" rx="7.5" ry="6"/></g><path d="M16 11c1 2 1 5 0 7M24 11c-1 2-1 5 0 7" fill="none" stroke-width="1.8"/>'),
 sv('<ellipse cx="20" cy="26" rx="16" ry="8" fill="#d99a58"/><path d="M4 26c0-10 8-18 16-18s16 8 16 18z" fill="#f2b04a"/><path d="M12 14l16 12M28 14L12 26M20 9v17" fill="none" stroke-width="2"/>'),
 sv('<path d="M4 30l32-6V14L4 8z" fill="#ffd2e6"/><path d="M4 30l32-6v5L4 35z" fill="#c99466"/><path d="M4 8l32 6" fill="none" stroke="#fff" stroke-width="4"/><circle cx="26" cy="9" r="3" fill="#ff4d6a"/>'),
 sv('<rect x="6" y="22" width="28" height="13" rx="3" fill="#b78bff"/><rect x="10" y="12" width="20" height="10" rx="3" fill="#ffd2e6"/><path d="M20 12V7"/><path d="M20 2c2 2 2 3 0 4-2-1-2-2 0-4z" fill="#ffd23f"/><path d="M6 28c4 3 8-3 14 0s10-3 14 0" fill="none" stroke="#fff" stroke-width="2.5"/>'),
@@ -1134,6 +1163,55 @@ BD.addEventListener("pointerup",e=>{const dx=e.clientX-sx,dy=e.clientY-sy;if(Mat
 $("#mnw").onclick=newGame;$("#mun").onclick=()=>{if(!prev||undo<1||locked)return;restore(prev);undo--;prev=null;over=0;OV.hidden=true;upd();persist()};
 try{const sv0=JSON.parse(store.get("mrgs")||"null");if(sv0&&sv0.g&&sv0.g.length){restore(sv0);undo=sv0.u;paid=sv0.p||0;if(!free().length&&!canMerge()){over=1;OV.innerHTML='<h3>No more moves!</h3><button class="btn" id="mov2">Play again</button>';OV.hidden=false;$("#mov2").onclick=newGame}}else newGame()}catch{newGame()}
 upd();
+})();
+
+/* ===== Battleship ===== */
+(function(){
+const N=10,FL=[["Carrier",5],["Battleship",4],["Cruiser",3],["Submarine",3],["Destroyer",2]],AID=650;
+let phase="setup",lvl=+store.get("btl"),horiz=true,sel=0,mine,foe,busy=0,shots=0,over=0,aiT=0;
+if(!(lvl>=0&&lvl<=2))lvl=1;
+const E=$("#bme"),F=$("#bfo"),nb=()=>({ships:[],g:Array(100).fill(-1),s:Array(100).fill(0)});
+const cells=(r,c,len,h)=>Array.from({length:len},(_,k)=>h?r*N+c+k:(r+k)*N+c);
+const fits=(b,r,c,len,h)=>{if(h?c+len>N:r+len>N)return false;return cells(r,c,len,h).every(i=>b.g[i]<0)};
+function put(b,k,r,c,h){const cs=cells(r,c,FL[k][1],h);b.ships[k]={n:FL[k][0],len:FL[k][1],cells:cs,h,hits:0,sunk:0};cs.forEach(i=>b.g[i]=k)}
+function randFleet(){const b=nb();FL.forEach((_,k)=>{for(;;){const h=Math.random()<.5,r=Math.random()*N|0,c=Math.random()*N|0;if(fits(b,r,c,FL[k][1],h)){put(b,k,r,c,h);break}}});return b}
+const coord=i=>String.fromCharCode(65+i%N)+((i/N|0)+1);
+function build(el,fn){el.innerHTML="";for(let i=0;i<100;i++){const d=document.createElement("i");d.className="wc";d.dataset.i=i;el.append(d)}}
+function paint(b,el,show){const ch=el.children;for(let i=0;i<100;i++){const st=b.s[i],si=b.g[i];let c="wc";
+  if(si>=0&&(show||st===3)){const sp=b.ships[si];c+=" sh "+(sp.h?"hz":"vz")+(i===sp.cells[0]?" f":"")+(i===sp.cells[sp.len-1]?" l":"")}
+  if(st===1)c+=" m";else if(st>=2)c+=" h"+(st===3?" k":"");
+  if(ch[i].className!==c&&!ch[i].className.includes(" pv"))ch[i].className=c;else if(ch[i].className.includes(" pv"))ch[i].className=c}}
+function left(b){return b.ships.filter(x=>!x.sunk).length}
+function head(){$("#bmh").textContent="Your fleet"+(phase==="battle"?" · "+left(mine)+" left":"");$("#bfh").textContent="Enemy waters"+(foe?" · "+left(foe)+" left":"")}
+function msg(t){$("#bmsg").textContent=t}
+function chips(){$("#bfl").innerHTML=FL.map((f,k)=>`<button class="btn${mine.ships[k]?" done":""}${k===sel?" on":""}" data-s="${k}">${f[0]} ${f[1]}</button>`).join("");$("#bgo").disabled=mine.ships.length<5||mine.ships.some(x=>!x)}
+function ui(){const set=phase==="setup";$("#bfl").hidden=!set;$("#brot").hidden=$("#brnd").hidden=$("#bgo").hidden=!set;$("#bdiff").hidden=!set;$("#bfw").hidden=set&&true;
+ $("#brst").textContent=set?"Reset":"New game";$("#bhelp").textContent=set?"Place your fleet: pick a ship, tap the board, press R or Rotate to turn it. Then start the battle!":"Tap a square in the enemy waters to fire. Sink all 5 enemy ships first!";
+ $("#bdiff").querySelectorAll("button").forEach(b=>b.classList.toggle("on",+b.dataset.l===lvl));if(set)chips();head()}
+function setup(){phase="setup";mine=nb();foe=null;sel=0;over=0;busy=0;shots=0;clearTimeout(aiT);$("#bres").hidden=true;build(E);build(F);paint(mine,E,true);msg("Place your ships");ui()}
+function nextSel(){const k=FL.findIndex((_,i)=>!mine.ships[i]);sel=k<0?0:k}
+function preview(i){E.querySelectorAll(".pv").forEach(x=>x.classList.remove("pv","ok","bad"));if(phase!=="setup"||mine.ships[sel])return;const r=i/N|0,c=i%N,len=FL[sel][1],ok=fits(mine,r,c,len,horiz);const cs=horiz?Array.from({length:len},(_,k)=>c+k<N?r*N+c+k:-1):Array.from({length:len},(_,k)=>r+k<N?(r+k)*N+c:-1);cs.forEach(x=>{if(x>=0)E.children[x].classList.add("pv",ok?"ok":"bad")})}
+E.addEventListener("mouseover",e=>{const i=e.target.dataset.i;if(i!==undefined)preview(+i)});E.addEventListener("mouseleave",()=>E.querySelectorAll(".pv").forEach(x=>x.classList.remove("pv","ok","bad")));
+E.addEventListener("click",e=>{const i=e.target.dataset.i;if(i===undefined||phase!=="setup"||mine.ships[sel])return;const r=i/N|0,c=i%N;if(!fits(mine,r,c,FL[sel][1],horiz))return E.animate([{transform:"translateX(-5px)"},{transform:"translateX(5px)"},{transform:"none"}],{duration:200});put(mine,sel,r,c,horiz);nextSel();paint(mine,E,true);chips();msg(mine.ships.every(x=>x)&&mine.ships.length===5?"Fleet ready! Start the battle":"Place your ships")});
+$("#bfl").onclick=e=>{const b=e.target.closest("[data-s]");if(!b)return;const k=+b.dataset.s;if(mine.ships[k]){const sp=mine.ships[k];sp.cells.forEach(i=>mine.g[i]=-1);delete mine.ships[k];paint(mine,E,true)}sel=k;chips()};
+$("#brot").onclick=()=>{horiz=!horiz};addEventListener("keydown",e=>{if(e.key.toLowerCase()==="r"&&$("#bts").classList.contains("on")&&phase==="setup")horiz=!horiz});
+$("#brnd").onclick=()=>{mine=randFleet();sel=0;paint(mine,E,true);chips();msg("Fleet ready! Start the battle")};
+$("#brst").onclick=setup;
+$("#bdiff").onclick=e=>{const b=e.target.closest("[data-l]");if(!b)return;lvl=+b.dataset.l;store.set("btl",lvl);ui()};
+$("#bgo").onclick=()=>{foe=randFleet();phase="battle";shots=0;paint(foe,F,false);paint(mine,E,true);$("#bfw").hidden=false;ui();msg("Your turn – fire!")};
+function fire(b,i){b.s[i]=b.g[i]>=0?2:1;let sunk=null;if(b.g[i]>=0){const sp=b.ships[b.g[i]];sp.hits++;if(sp.hits===sp.len){sp.sunk=1;sp.cells.forEach(c=>b.s[c]=3);sunk=sp}}return sunk}
+function ai(b){const un=[];for(let i=0;i<100;i++)if(b.s[i]===0)un.push(i);const hits=[];for(let i=0;i<100;i++)if(b.s[i]===2)hits.push(i);
+ if(lvl===0||(lvl===1&&Math.random()<.3)){if(hits.length&&Math.random()<.7){const nbs=[];hits.forEach(h=>{[[1,0],[-1,0],[0,1],[0,-1]].forEach(([dr,dc])=>{const r=(h/N|0)+dr,c=h%N+dc;if(r>=0&&r<N&&c>=0&&c<N&&b.s[r*N+c]===0)nbs.push(r*N+c)})});if(nbs.length)return nbs[Math.random()*nbs.length|0]}return un[Math.random()*un.length|0]}
+ const w=Array(100).fill(0);for(const sp of b.ships)if(!sp.sunk)for(const h of[true,false])for(let r=0;r<N;r++)for(let c=0;c<N;c++){if(h?c+sp.len>N:r+sp.len>N)continue;const cs=cells(r,c,sp.len,h);if(cs.some(i=>b.s[i]===1||b.s[i]===3))continue;const nh=cs.filter(i=>b.s[i]===2).length,bo=nh?Math.pow(30,nh):1;cs.forEach(i=>{if(b.s[i]===0)w[i]+=bo})}
+ let best=-1,list=[];for(const i of un){if(w[i]>best){best=w[i];list=[i]}else if(w[i]===best)list.push(i)}return list[Math.random()*list.length|0]}
+function finish(win){over=1;busy=1;paint(foe,F,true);head();const m=win?[3,6,10][lvl]:.5,r=Math.floor(Math.max(100,cps()*30+clickPow()*20)*m);S.c+=r;ST().btg=(ST().btg||0)+1;
+ if(win){ST().btw=(ST().btw||0)+1;if(lvl===2)ST().bth=(ST().bth||0)+1;if(shots<=50)ST().btq=(ST().btq||0)+1;if(lvl>=1)giveChest(lvl===2?"s":"w","Battleship win")}save();
+ $("#bres").innerHTML=`<h3>${win?"Victory! You sank the enemy fleet!":"Defeat – the enemy sank your fleet."}</h3><div>${shots} shots · <b>+${fmt(r)} crumbs</b></div><button class="btn" id="bagain" style="margin-top:8px">Play again</button>`;$("#bres").hidden=false;$("#bagain").onclick=setup;msg(win?"You win!":"You lose")}
+function theirTurn(){if(over)return;const i=ai(mine),sunk=fire(mine,i);paint(mine,E,true);head();msg("Enemy fired at "+coord(i)+": "+(sunk?"they sunk your "+sunk.n+"!":mine.s[i]>=2?"Hit!":"Miss."));if(left(mine)===0)return finish(false);busy=0}
+F.addEventListener("click",e=>{const i=e.target.dataset.i;if(i===undefined||phase!=="battle"||busy||over||foe.s[+i]!==0)return;busy=1;shots++;const sunk=fire(foe,+i);paint(foe,F,false);head();
+ if(sunk){note("You sunk the "+sunk.n+"!");if(EVID)ST().evi=(ST().evi||0)+1}
+ msg("You fired at "+coord(+i)+": "+(sunk?"sunk the "+sunk.n+"!":foe.s[+i]>=2?"Hit!":"Miss."));if(left(foe)===0)return finish(true);aiT=setTimeout(theirTurn,AID)});
+setup();
 })();
 </script>
 </body>
